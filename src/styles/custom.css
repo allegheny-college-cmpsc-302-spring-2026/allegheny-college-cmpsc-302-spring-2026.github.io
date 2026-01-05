@@ -55,7 +55,7 @@
 	background: var(--sl-color-text-accent);
 	padding: .25rem;
 	border-radius: .25rem;
-	color: #222;
+	color: var(--sl-color-text-invert);
 }
 
 .course-info-table > div {
@@ -65,6 +65,8 @@
 	flex-direction: column;
 }
 
-.course-info-stack {
-	display: flex;
+.wide-column {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
 }
