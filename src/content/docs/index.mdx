@@ -1,0 +1,55 @@
+---
+title: "Web Design"
+description: "Site for CMPSC 302: Web Design @ Allegheny College, Spring 2026"
+template: splash # Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Allegheny College, Spring 2026
+  image:
+    file: ../../assets/course-icon.svg
+---
+
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<div class = "container">
+	<div>
+		### Course Description
+		<p>This course introduces the foundational principles and practices of web design. 
+		Students develop the skills to create responsive, accessible, and aesthetically engaging 
+		websites that adhere to web standards and design principles. Students explore web 
+		technologies, including HTML, CSS, JavaScript, Markdown, React, and 11ty (Eleventy) 
+		static site generators, while learning about web accessibility, design patterns, 
+		and wireframing with Figma.</p>
+	</div>
+	<div>
+		### Learning Objectives
+			1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, 
+			responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+			2. Evaluate and implement web accessibility measures consistent with the Web 
+			Content Accessibility Guidelines (WCAG) version 2 specification.
+			3. Design front-end user experiences using accepted web design patterns, methods, 
+			and information structures.
+			4. Identify and use strategies of successful visual rhetoric for the web.
+			5. Compare and select web technologies such as static site generators or 
+			frameworks as appropriate candidates for building web sites.
+	</div>
+</div>
+## Course Resources
+
+<CardGrid>
+  <LinkCard 
+  	title="Course Syllabus" 
+	href="course-materials/syllabus"
+	description="Shortcut to the course syllabus"
+  />
+  <LinkCard 
+  	title="Course Github" 
+	href="https://github.com/allegheny-college-cmpsc-302-spring-2026" 
+	description="Shortcut to the course Github organization"
+	icon="Github"
+  />
+  <LinkCard 
+  	title="Course Schedule" 
+	href="https://chompe.rs/302-schedule" 
+	description="Shortcut to the course schedule"
+  />
+</CardGrid>

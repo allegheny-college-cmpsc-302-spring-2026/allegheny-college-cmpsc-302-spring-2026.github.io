@@ -1,0 +1,70 @@
+/* Dark mode colors. */
+:root {
+	--sl-color-accent-low: #132922;
+	--sl-color-accent: #1a7b64;
+	--sl-color-accent-high: #b5d0c6;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #eceef2;
+	--sl-color-gray-2: #c6c8ce;
+	--sl-color-gray-3: #a0a4ae;
+	--sl-color-gray-4: #545861;
+	--sl-color-gray-5: #353841;
+	--sl-color-gray-6: #24272f;
+	--sl-color-black: #17181c;
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--sl-color-accent-low: #c8dcd5;
+	--sl-color-accent: #005947;
+	--sl-color-accent-high: #153a30;
+	--sl-color-white: #17181c;
+	--sl-color-gray-1: #24272f;
+	--sl-color-gray-2: #353841;
+	--sl-color-gray-3: #545861;
+	--sl-color-gray-4: #888b96;
+	--sl-color-gray-5: #c0c2c7;
+	--sl-color-gray-6: #eceef2;
+	--sl-color-gray-7: #f5f6f8;
+	--sl-color-black: #ffffff;
+    --sl-color-bg: #f2f0ef;
+}
+/* Bespoke design elements */
+::selection {
+	background-color: #c7e8df;
+	color: #222;
+
+}
+.container {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 1.5rem;
+}
+
+.container > div {
+	margin-top: 0;
+}
+
+.course-info-table {
+	display: flex;
+	grid-template-columns: 25% 75%;
+	grid-template-rows: auto;
+	grid-column-gap: 1.5rem;
+}
+
+.course-info-table .info-label {
+	background: var(--sl-color-text-accent);
+	padding: .25rem;
+	border-radius: .25rem;
+	color: #222;
+}
+
+.course-info-table > div {
+	margin-top: 0;
+	margin-bottom: .25rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.course-info-stack {
+	display: flex;
+}
