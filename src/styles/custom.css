@@ -34,6 +34,12 @@
 	color: #222;
 
 }
+
+.icon-prepend {
+	display: inline;
+	margin-right: 1rem;
+}
+
 .container {
 	display: grid;
 	grid-template-columns: auto auto;
@@ -45,7 +51,7 @@
 }
 
 .course-info-table {
-	display: flex;
+	display: table;
 	grid-template-columns: 25% auto;
 	grid-template-rows: auto;
 	grid-column-gap: 1.5rem;
@@ -60,14 +66,16 @@
 }
 
 .course-info-table > div {
-	margin-top: 0;
-	margin-bottom: .25rem;
-	display: flex;
-	flex-direction: column;
+	margin: .25rem;
+	display: table-cell;
+	padding: .25rem;
 }
-
 .wide-column {
 	display: grid;
+}
+
+.schedule-table {
+
 }
 
 @media screen and (max-width: 768px) {

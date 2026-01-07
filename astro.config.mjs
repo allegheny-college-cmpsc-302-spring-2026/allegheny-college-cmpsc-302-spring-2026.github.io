@@ -1,7 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
 import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
@@ -15,11 +14,14 @@ export default defineConfig({
         sidebar: [
             {
                 label: 'Course Materials',
-                autogenerate: { directory: 'course-materials' },
+                items: [
+                    { label: 'Syllabus', slug: 'course-materials/syllabus' },
+                    { label: 'Contract', slug: 'course-materials/contract' },
+                ]
             },
             {
-                label: 'Reference',
-                autogenerate: { directory: 'reference' },
+                label: 'Course Content',
+                autogenerate: { directory: 'content' },
             },
         ],
 		}), mdx()],
