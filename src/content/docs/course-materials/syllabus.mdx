@@ -12,8 +12,14 @@ labDay: ["W"]
 labTime: ["14:30 - 16:00"]
 officeHoursCalendar: https://chompe.rs/office-hours
 ---
+import { Image } from 'astro:assets';
+import courseBanner from '../../../assets/course-banner.png';
 
-![](../../../assets/course-banner.png)
+<Image 
+    src={courseBanner} 
+    alt="CMPSC 302: Web Design, Course Logo"
+    loading="eager"
+/>
 
 ## Course Information
 

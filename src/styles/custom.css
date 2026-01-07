@@ -87,6 +87,16 @@
 	margin-left: 1rem;
 }
 
+.grading-schedule tr:nth-child(even){
+	background: #444;
+	color: #fff;
+}
+
+.grading-schedule td {
+	text-align: center;
+	vertical-align: middle;
+}
+
 @media screen and (max-width: 768px) {
 	.course-info-table {
 		display: grid;

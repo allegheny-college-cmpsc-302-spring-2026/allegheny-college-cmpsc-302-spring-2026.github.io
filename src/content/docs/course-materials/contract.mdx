@@ -2,14 +2,33 @@
 title: Course Contract
 description: Course grading contract for CMPSC 302, Spring 2026, Allegheny College
 next: false
-grades: [
-    {"grade": "A", "Benchmarks":["All","All","All","All"]}
+columns: [
+    "Grade",
+    "Avg. Project Attempts",
+    "Avg. Challenge Attempts",
+    "Avg. Assessment Attempts"
+]
+levels: [
+    {"grade": "A", "benchmarks":["1","1","1"]},
+    {"grade": "B+", "benchmarks":["1","1","2"]},
+    {"grade": "B", "benchmarks":["1","2","2"]},
+    {"grade": "B-", "benchmarks":["1","2","3"]},
+    {"grade": "C+", "benchmarks":["2","3","3"]},
+    {"grade": "C", "benchmarks":["2","3","4"]},
+    {"grade": "C-", "benchmarks":["2","4","4"]},
+    {"grade": "D", "benchmarks":["3","4","4"]},
 ]
 ---
+import { Image } from 'astro:assets';
 import { Icon } from '@astrojs/starlight/components';
+import courseBanner from '../../../assets/course-banner.png';
 import GradingSchedule from '../../../components/GradingSchedule.astro';
 
-![](../../../assets/course-banner.png)
+<Image 
+    src={courseBanner} 
+    alt="CMPSC 302: Web Design, Course Logo"
+    loading="eager"
+/>
 
 > In most learning situations in life outside of school, grades are never given. The learning 
 > that occurs in cooking, dance, or yoga studios do not use any grading. Why? In these “studio” 
@@ -83,7 +102,7 @@ challenges will be due one (1) week from the day they are assigned. These will o
 and evaluate learner's grasp of content from that time period. The majority of these will be individual assignments,
 though some may be collaborative. The instructor will distinguish between these when assigning the challenge(s).
 
-### The Project
+### Project Benchmarks
 
 > <Icon name = "seti:clock" class = "icon-prepend" /> Monthly
 
@@ -95,6 +114,12 @@ These benchmarks will be due on a monthly basis. This project constitutes an ind
 
 ### Grading Schedule
 
-|Grade |Project Benchmarks Completed|Assessments Completed|Challenges Completed|
-|:-----|:---------------------------|:--------------------|:-------------------|
-<GradingSchedule levels={frontmatter.grades} />
+<GradingSchedule cols={frontmatter.columns} rows={frontmatter.levels} />
+
+This course incorporates _effort_ and _process_ as its main evaluative metric. As such, you are 
+encourged to make as many attempts as you wish to complete assignments. The number of attempts needed
+to pass each benchmark will be averaged and _rounded down_. 
+
+#### Achieving Benchmarks
+
+To successfully achieve a benchmark, students must complete _all_ requirements of an assignment. 

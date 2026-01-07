@@ -1,8 +1,24 @@
 ---
-import {For} from '@astropub/flow'
-import type { AllValuesOf } from 'astro:content'
-const {levels} = Astro.props
+interface TableRow {
+    grade: string,
+    benchmarks: string[]
+}
+const {cols, rows} = Astro.props;
 ---
-<For of={levels}>{
-    (level:any) => level.grade
-}</For>
+<table class = "grading-schedule">
+    <thead>
+        <tr>
+            {cols.map((col:string) => (
+                <th>{col}</th>
+            ))}
+        </tr>
+    </thead>
+    {rows.map((row:TableRow) => 
+        <tr>
+            <td>{row.grade}</td>
+            {row.benchmarks.map((benchmark) => (
+                <td>{benchmark}</td>
+            ))}
+        </tr>
+    )}
+</table>
