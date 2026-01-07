@@ -10,13 +10,17 @@ columns: [
 ]
 levels: [
     {"grade": "A", "benchmarks":["1","1","1"]},
-    {"grade": "B+", "benchmarks":["1","1","2"]},
-    {"grade": "B", "benchmarks":["1","2","2"]},
-    {"grade": "B-", "benchmarks":["1","2","3"]},
-    {"grade": "C+", "benchmarks":["2","3","3"]},
-    {"grade": "C", "benchmarks":["2","3","4"]},
-    {"grade": "C-", "benchmarks":["2","4","4"]},
-    {"grade": "D", "benchmarks":["3","4","4"]},
+    {"grade": "A-", "benchmarks":["1","1","2"]},
+    {"grade": "B+", "benchmarks":["1","2","2"]},
+    {"grade": "B", "benchmarks":["1","2","3"]},
+    {"grade": "B-", "benchmarks":["1","3","3"]},
+    {"grade": "C+", "benchmarks":["2","3","4"]},
+    {"grade": "C", "benchmarks":["2","4","4"]},
+    {"grade": "C-", "benchmarks":["2","4","5"]},
+    {"grade": "D", "benchmarks":["3","5","5"]},
+]
+exampleLevels: [
+    {"grade": "B", "benchmarks":["1.45","1.85","3.3"]}
 ]
 ---
 import { Image } from 'astro:assets';
@@ -55,9 +59,7 @@ and incorrect work, so will you. _Except_, you have an advantage: you can always
 "do-over"s are limited. If you accept this invitation and make every attempt to improve, your work will
 merit the credit it deserves.
 
-## The Basic Grade
-
-Students who meet the basic covenants of this contract will earn a `C` in this course. 
+## Grading Philosophy
 
 Rising to the level of above-average or exceptional work relies on the just that: above-average or exceptional work. 
 This contract should provide incentives to think beyond mere sufficiency. As you'll see below, work that aspires to 
@@ -122,4 +124,25 @@ to pass each benchmark will be averaged and _rounded down_.
 
 #### Achieving Benchmarks
 
-To successfully achieve a benchmark, students must complete _all_ requirements of an assignment. 
+To successfully achieve a benchmark, students must complete _all_ requirements of an assignment. These
+will follow either a rubric or a set of Gatorgrader specifications. For example, challenges and assessments like 
+presentations or interviews will follow published rubrics; challenges which require technical implementations will
+include automated grading specifications. While this distinction is not wholly representative of the various
+kinds of assignments in this course, be aware that each assignment will be accompanied by a set of grading
+specifications, known to students at the time of assignment.
+
+#### Averaging Benchmark Attempts
+
+Benchmark averages will be calculated over the course of the semester, rounding _down_, using increments
+of `.5` as the rounding factor.
+
+For example, a student with the following profile:
+
+<GradingSchedule cols={frontmatter.columns} rows={frontmatter.exampleLevels} />
+
+would be evaluated as having achieved a `B` letter grade in the course.
+
+#### Incomplete benchmarks
+
+In the case of an incomplete benchmark, students will be assessed as having taken `6` attempts to complete it. This
+evaluation will be incorporated into the average calculation of a student's progress toward a given metric.
