@@ -1,0 +1,32 @@
+---
+title: Course Schedule
+description: Schedule of course content and assignments
+previous: false
+units: [    
+    {
+        name: "Information Architecture, Content, Basic Web Skills",
+        weeks: [
+            {date: "This", topic: "That", assignment: "The other"},
+            {date: "This", topic: "That", assignment: "The other"}
+        ],
+        open: true
+    },
+    {
+        name: "Enhancing Your Portfolio",
+        weeks: [
+            {date: "This", topic: "That", assignment: "The other"}
+        ],
+        open: false
+    },
+    {
+        name: "Interactive Front-End Development",
+        weeks: [
+            {date: "This", topic: "That", assignment: "The other"}
+        ],
+        open: false
+    }
+]
+---
+import CourseSchedule from '../../../components/CourseSchedule.astro';
+
+<CourseSchedule content={frontmatter.units} />

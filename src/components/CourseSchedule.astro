@@ -1,0 +1,17 @@
+---
+interface unitType {
+    name: string,
+    weeks: object[],
+    open: boolean
+};
+import { Accordion, AccordionItem } from 'accessible-astro-components';
+import UnitSchedule from './UnitSchedule.astro';
+const {content} = Astro.props;
+---
+<Accordion class="course-schedule">
+    {content.map((unit:unitType) => (
+        <AccordionItem variant="chevron" title={unit.name} open={unit.open}>
+            <UnitSchedule content={unit.weeks} />
+        </AccordionItem>
+    ))}
+</Accordion>

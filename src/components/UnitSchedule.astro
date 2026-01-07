@@ -1,0 +1,26 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+interface contentRow {
+    date: string,
+    topic: string,
+    assignment: string
+};
+const {content} = Astro.props;
+---
+<div class = "table-container">
+    <table>
+        <thead>
+            <tr>
+                <td>Date</td>
+                <td>Topic</td>
+                <td>Assignment Due</td>
+            </tr>
+        </thead>
+        {content.map((entry:contentRow) => (
+            <tr><td colspan = 1><Icon name = "sun" /></td><td colspan = 2>{entry.date}</td></tr>
+            <tr><td colspan = 1><Icon name = "open-book" /></td><td colspan = 2>{entry.topic}</td></tr>
+            <tr><td colspan = 1><Icon name = "approve-check" /></td><td colspan = 2>{entry.assignment}</td></tr>
+            <tr><td colspan = 1><Icon name = "seti:notebook" /></td><td colspan = 2>{entry.assignment}</td></tr>
+        ))}
+    </table>
+</div>

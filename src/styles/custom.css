@@ -97,6 +97,19 @@
 	vertical-align: middle;
 }
 
+.course-schedule details {
+	margin-bottom: 0;
+	border-left: 0;
+}
+
+.course-schedule table {
+	width: 100%;
+}
+
+.course-schedule .table-container {
+	width: 100%;
+}
+
 @media screen and (max-width: 768px) {
 	.course-info-table {
 		display: grid;
