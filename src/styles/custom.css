@@ -74,8 +74,17 @@
 	display: grid;
 }
 
-.schedule-table {
+.inline-unbulleted{
+	list-style-type: none;
+	padding-left: .5rem;
+}
 
+.inline-unbulleted > li {
+	display: inline;
+}
+
+.inline-unbulleted > li:not(:first-child) {
+	margin-left: 1rem;
 }
 
 @media screen and (max-width: 768px) {

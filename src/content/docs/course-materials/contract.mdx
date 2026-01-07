@@ -2,8 +2,12 @@
 title: Course Contract
 description: Course grading contract for CMPSC 302, Spring 2026, Allegheny College
 next: false
+grades: [
+    {"grade": "A", "Benchmarks":["All","All","All","All"]}
+]
 ---
 import { Icon } from '@astrojs/starlight/components';
+import GradingSchedule from '../../../components/GradingSchedule.astro';
 
 ![](../../../assets/course-banner.png)
 
@@ -67,18 +71,30 @@ Assessments represent short, targeted activities which evaluate learning on a sp
 will represent short technical interview components such as oral questions, short technical problems (solvable
 within shorter periods of time), or requests to speculate on solutions to given design problems. While these may be 
 somewhat cumulative (i.e., can incorporate previous content), their main goal is to examine understanding of topics
-recently completed within the prior week's time.
+recently completed within the prior week's time. The majority of these will be individual assignments,
+though some may be collaborative. The instructor will distinguish between these when assigning the challenge(s).
 
 ### Challenges
 
+> <Icon name = "seti:clock" class = "icon-prepend" /> Bi-weekly
+
 Longer-term technical challenges intend to simulate a "take-home" interview assignment. When assigned, each of these
 challenges will be due one (1) week from the day they are assigned. These will occur every other week in the course
-and evaluate learner's grasp of content from that time period.
+and evaluate learner's grasp of content from that time period. The majority of these will be individual assignments,
+though some may be collaborative. The instructor will distinguish between these when assigning the challenge(s).
 
 ### The Project
+
+> <Icon name = "seti:clock" class = "icon-prepend" /> Monthly
 
 The main goal of this course is to enable you to complete a single larger-scale personal portfolio project. Students may 
 choose to display other types of projects from discplines including, but not limited to, computer science. While this
 project occurs over the course of the entire semester, there will be periodic benchmarking assignments to assess 
 student progress on the various planning and building tasks inherent in creating a complete, polished, personal website.
-These benchmarks will be due on a monthly basis.
+These benchmarks will be due on a monthly basis. This project constitutes an individual assignment.
+
+### Grading Schedule
+
+|Grade |Project Benchmarks Completed|Assessments Completed|Challenges Completed|
+|:-----|:---------------------------|:--------------------|:-------------------|
+<GradingSchedule levels={frontmatter.grades} />

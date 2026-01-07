@@ -73,9 +73,7 @@ and wireframing with Figma.
         {frontmatter.prereqs.join(",")}
     </div>
     <div><span class = "info-label">Distribution Requirements</span></div>
-    <div>
-        {frontmatter.dr.join(",")}
-    </div>
+    <ul class = "inline-unbulleted">{frontmatter.dr.map(elem => <li><code>{elem}</code></li>)}</ul>
 </div>
 
 ### Distribution Requirement Outcomes

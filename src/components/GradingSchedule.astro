@@ -1,0 +1,8 @@
+---
+import {For} from '@astropub/flow'
+import type { AllValuesOf } from 'astro:content'
+const {levels} = Astro.props
+---
+<For of={levels}>{
+    (level:any) => level.grade
+}</For>
