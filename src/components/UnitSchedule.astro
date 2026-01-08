@@ -29,8 +29,9 @@ import LabMarker from './LabMarker.astro';
         </thead>
         <tbody>
         {content.map((entry:contentRow) => (
+            <tr class = "schedule-week"><td colspan = 3>Week {content.indexOf(entry)}</td></tr>
             <tr>
-                <td colspan = 1><Icon name = "sun" /></td>
+                <td colspan = 1><Icon name = "information" /></td>
                 <td colspan = 2>
                     {entry.topic}
                 </td>
@@ -53,7 +54,7 @@ import LabMarker from './LabMarker.astro';
                     <a href = {entry.presentation_url}>Slides</a>
                 </td>
             </tr>
-            <tr>
+            <!-- -->
             {entry.dates.map((session:classSession) => (
                 <tr>
                     <td><DayOfWeek date = {session.date}/></td>
@@ -61,7 +62,7 @@ import LabMarker from './LabMarker.astro';
                     <td>{session.assignment}</td>
                 </tr>
             ))}
-            </tr>
+            <!-- -->
         ))}
         </tbody>
     </table>

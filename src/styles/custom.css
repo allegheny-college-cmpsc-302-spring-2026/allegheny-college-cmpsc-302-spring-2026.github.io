@@ -123,6 +123,20 @@
 	overflow-wrap: break-word;
 }
 
+.course-schedule tr > td:first-child {
+	padding: 0 1rem;
+}
+
+.course-schedule tr > td:first-child svg {
+	display: block;
+	margin: 0 auto;
+}
+
+.course-schedule .schedule-week {
+	background: var(--sl-color-accent);
+	color: var(--sl-color-text-invert);
+}
+
 .course-schedule .table-container {
 	width: 100%;
 }
