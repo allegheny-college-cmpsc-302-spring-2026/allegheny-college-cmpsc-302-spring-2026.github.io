@@ -2,6 +2,7 @@
 import { Icon } from '@astrojs/starlight/components';
 interface contentRow {
     topic: string,
+    noClass: boolean,
     readings: string[],
     assignment: string,
     assignment_url: string,
@@ -36,30 +37,39 @@ import ReadingAssignments from './ReadingAssignments.astro';
                     {entry.topic}
                 </td>
             </tr>
-            <!-- -->
-            <ReadingAssignments readings={entry.readings} />
-            <!-- -->
-            <tr>
-                <td colspan = 1><Icon name = "approve-check" /></td>
-                <td colspan = 2>
-                    <a href = {entry.assignment_url} target = "_blank">{entry.assignment}</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan = 1><Icon name = "seti:notebook" /></td>
-                <td colspan = 2>
-                    <a href = {entry.presentation_url}>Slides</a>
-                </td>
-            </tr>
-            <!-- -->
-            {entry.dates.map((session:classSession) => (
+
+            <!-- Empty if flag set for noClass -->
+
+            {!entry.noClass ? 
+                <!-- Reading assignments -->
+                <ReadingAssignments readings={entry.readings} />
+                <!-- Reading assignments -->
+
                 <tr>
-                    <td><DayOfWeek date = {session.date}/></td>
-                    <td><LabMarker status = {session.lab}/>{session.topic}</td>
-                    <td>{session.assignment}</td>
+                    <td colspan = 1><Icon name = "approve-check" /></td>
+                    <td colspan = 2>
+                        <a href = {entry.assignment_url} target = "_blank">{!entry.noClass && entry.assignment}</a>
+                    </td>
                 </tr>
-            ))}
-            <!-- -->
+                <tr>
+                    <td colspan = 1><Icon name = "seti:notebook" /></td>
+                    <td colspan = 2>
+                        <a href = {entry.presentation_url}>{!entry.noClass && "Slides"}</a>
+                    </td>
+                </tr>
+
+                <!-- Rows for dates only -->
+                {!entry.noClass && entry.dates.map((session:classSession) => (
+                    <tr>
+                        <td><DayOfWeek date = {session.date}/></td>
+                        <td><LabMarker status = {session.lab}/>{session.topic}</td>
+                        <td>{session.assignment}</td>
+                    </tr>
+                ))}
+                <!-- Rows for dates only -->
+            : ""}
+
+            <!-- Empty if flag set for noClass -->
         ))}
         </tbody>
     </table>
