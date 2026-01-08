@@ -32,7 +32,6 @@
 ::selection {
 	background-color: #c7e8df;
 	color: #222;
-
 }
 
 .icon-prepend {
@@ -150,6 +149,10 @@
 	margin-left: 0;
 	padding-left: 0;
 	list-style-type: none;
+}
+
+.schedule-week td{
+	padding: 8px !important;
 }
 
 .unit-project li {
