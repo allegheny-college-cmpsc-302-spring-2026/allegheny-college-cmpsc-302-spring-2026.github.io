@@ -1,39 +1,15 @@
-# Starlight Starter Kit: Basics
+# CMPSC 302: Web Design
 
 [![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-```
-npm create astro@latest -- --template starlight
-```
+This repository provides the website for `CMPSC 302`, Web Design, at Allegheny College. It was used for the
+Spring 2026 section. It is built using the [Starlight](https://starlight.astro.build/) docs template for
+the [Astro](https://astro.build/) build platform.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This template also includes the `ReactJS` framework, for use during later stages in the course when discussing
+integrating `components`. This language is common across React and Astro.
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
-
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
-
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
+## Commands
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -44,6 +20,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## CI/CD
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+This repository contains build instructions used to deploy the site to Github Pages. 
