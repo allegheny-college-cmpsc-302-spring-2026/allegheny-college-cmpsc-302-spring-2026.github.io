@@ -22,6 +22,7 @@ import doUnity from '../../../assets/presentation-img/design-vocab/do-unity.png'
 import negativeSpace from '../../../assets/presentation-img/design-vocab/negative-space.png';
 import colorWheel from '../../../assets/presentation-img/design-vocab/color-wheel.webp';
 import colorWheelRelationships from '../../../assets/presentation-img/design-vocab/color-relationships.webp';
+import serifAndSans from '../../../assets/presentation-img/design-vocab/serif-sans.png';
 
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
@@ -245,4 +246,63 @@ In what ways does this image demonstrate hierarchy of information through design
         />
     </div>
 </div>
+</Slide>
+
+<Slide>
+#### Typography
+> Use of arranging type to legibly display written language.
+
+<div style = "width:100%;">
+    <Image 
+        src={serifAndSans}
+        alt="CMPSC 302: Web Design, Course Logo"
+        loading="lazy"
+        style="margin: 0 auto;"
+        width="400"
+    />
+</div>
+
+While several more different types of typefaces exist (`mono-space`, `slab serif`, `script`, et al.) the _serif_ and _sans serif_
+varieties are the most likely you'll encounter.
+
+Typically:
+* sans serif typefaces make paragraphs much more legible due to sharper distinctions
+* serif typefaces make for good "heading" type
+* while these rules are a good starting point, appropriate spacing and accompanying design often dictate ease-of-reading
+
+</Slide>
+
+<Slide>
+##### Various kinds of type spacing
+
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <figure style = "letter-spacing: 1px; margin-top: 0;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia augue vel quam hendrerit consectetur. 
+        Maecenas congue metus ac ante ultrices, ac molestie magna luctus. Morbi id erat iaculis, volutpat neque a, lobortis 
+        mauris.
+        <figcaption style = "letter-spacing: 0px;">Type with added `letter spacing`</figcaption> 
+    </figure>
+    <figure style = "margin-top: 0;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia augue vel quam hendrerit consectetur. 
+        Maecenas congue metus ac ante ultrices, ac molestie magna luctus. Morbi id erat iaculis, volutpat neque a, lobortis 
+        mauris. 
+        <figcaption style = "letter-spacing: 0px;">Type at default settings</figcaption> 
+    </figure>
+</div>
+
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <figure style = "line-height: 1rem; margin-top: 0;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia augue vel quam hendrerit consectetur. 
+        Maecenas congue metus ac ante ultrices, ac molestie magna luctus. Morbi id erat iaculis, volutpat neque a, lobortis 
+        mauris. 
+        <figcaption style = "line-height: unset;">Type with reduced `line-height`</figcaption>
+    </figure>
+        <figure style = "line-height: unset; margin-top: 0;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lacinia augue vel quam hendrerit consectetur. 
+        Maecenas congue metus ac ante ultrices, ac molestie magna luctus. Morbi id erat iaculis, volutpat neque a, lobortis 
+        mauris. 
+        <figcaption style = "line-height: unset;">Type with `28px` of `line-height`</figcaption>
+    </figure>
+</div>
+
 </Slide>

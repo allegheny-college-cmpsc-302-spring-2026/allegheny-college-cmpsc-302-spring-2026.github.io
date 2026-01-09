@@ -34,6 +34,10 @@
 	color: #222;
 }
 
+figcaption {
+	font-style: italic;
+}
+
 #presentation-button {
 	background: var(--sl-color-accent);
 	color: #fff;
