@@ -192,4 +192,10 @@ figcaption {
 	.course-info-table {
 		display: grid;
 	}
+	.container {
+		grid-template-columns: auto;
+	}
+	.slide-grid-two-column {
+		grid-template-columns: auto;
+	}
 }
