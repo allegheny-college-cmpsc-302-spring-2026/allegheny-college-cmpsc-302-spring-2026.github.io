@@ -186,16 +186,45 @@ figcaption {
 	align-content: center;
 	vertical-align: center;
 	padding: 1rem;
+	overflow: hidden;
 }
+
+.slide-grid-two-column > * {
+	margin-top: 0;
+}
+
+.slide-grid-table-display ul {
+	display: grid;
+	list-style-type: none;
+	padding-left: 0;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.slide-grid-table-display ul ul {
+	display: grid;
+	list-style-type: none;
+	padding-left: 0;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+	padding: 1rem;
+}
+
 
 @media screen and (max-width: 768px) {
 	.course-info-table {
 		display: grid;
 	}
 	.container {
-		grid-template-columns: auto;
+		grid-template-columns: auto !important;
 	}
 	.slide-grid-two-column {
+		grid-template-columns: auto !important;
+	}
+	.slide-grid-table-display ul {
+		display: grid;
+		list-style-type: none;
+		padding-left: 0;
 		grid-template-columns: auto;
 	}
+
 }

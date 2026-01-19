@@ -5,6 +5,7 @@ sidebar:
   order: 3
 ---
 import { Icon } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
 import ColorSquare from '../../../components/ColorSquare.astro';
 import Slide from '../../../components/Slides/Slide.astro';
 import SlideOnly from '../../../components/Slides/SlideOnly.astro';
@@ -14,6 +15,15 @@ import { Image } from 'astro:assets';
 
 import designThinking from '../../../assets/presentation-img/ia/design-thinking.webp';
 import systemsThinking from '../../../assets/presentation-img/ia/systems-thinking.png';
+import target from '../../../assets/presentation-img/ia/target.png';
+import gears from '../../../assets/presentation-img/ia/gears.png';
+import hourglass from '../../../assets/presentation-img/ia/hourglass.png';
+import revise from '../../../assets/presentation-img/ia/revise.png';
+import community from '../../../assets/presentation-img/ia/community.png';
+import contentInventory from '../../../assets/presentation-img/ia/content-inventory.png';
+import pageInventory from '../../../assets/presentation-img/ia/page-inventory.png';
+import contentMapping from '../../../assets/presentation-img/ia/content-mapping.png';
+import exampleIA from '../../../assets/presentation-img/ia/example-ia.png';
 
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
@@ -38,27 +48,186 @@ This lesson addresses learning objectives:
 > <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1RI-or6yHbfXZbMUJ6veENlta7IDzU_dn/view" target = "_blank">_Information Architecture_, Chapter 1 + 2 + 6 + 13</a>
 
 <Slide centered>
+
 ## Content and Information Architecture
 </Slide>
 
 <Slide>
+### Types of Thinking
 In this course, we balance _two_ different kinds of thinking:
     <div class = "slide-grid-two-column" style = "align-items: unset;">
-    <figure style = "text-align: center;">
+    <figure>
+        <figcaption style = "line-height: unset; text-align: left;"><h4>Design Thinking</h4></figcaption>
         <Image 
             src={designThinking}
             alt="Design thinking diagram"
             loading="lazy"
         />
-        <figcaption style = "line-height: unset; text-align: left;">Design Thinking</figcaption>
     </figure>
-        <figure style = "margin-top: 0; text-align: justify;">
+        <figure style = "margin-top: 0;">
+        <figcaption style = "line-height: unset;"><h4>Systems Thinking</h4></figcaption>
         <Image 
             src={systemsThinking}
             alt="Systems thinking diagram"
             loading="lazy"
         />
-        <figcaption style = "line-height: unset;">Systems Thinking</figcaption>
     </figure>
-</div>
+    </div>
 </Slide>
+<Slide centered>
+    #### Design Thinking vs. Systems Thinking
+    <div class = "slide-grid-two-column" style = "align-items: unset;">
+        <div>
+            ##### Design Thinking
+            - Human-centered, tangible, experimental, action-oriented
+            - Foregrounds _empathy_ with people part of and impacted by the system
+            - Considers audience needs and behaviors
+            - Encourages prototyping with a high degree of risk-taking
+        </div>
+        <div style = "margin-top: 0;">
+            ##### Systems Thinking
+            - Relationships-based, where some actors _aren't_ human
+            - Visualizes systems instead of individual actors
+            - Concerned with root causes
+            - Offers ability to see gaps or opportunities without thinking about _how_ to address them
+        </div>
+    </div>
+</Slide>
+<Slide>
+    #### Humanity-centered Design
+
+    In creating effective design, we use both kinds of thinking in a form called _Humanity-Centered Design_, whose
+    steps are:
+
+    <div class = "slide-grid-table-display">
+        - <Image src={target} alt="Systems thinking diagram" loading="lazy"/>
+            - ##### Discover and address the proper root cause
+        - <Image src={gears} alt="Systems thinking diagram" loading="lazy"/>
+            - ##### Design considering the whole system
+        - <Image src={hourglass} alt="Systems thinking diagram" loading="lazy"/>
+            - ##### Take the long view
+        - <Image src={revise} alt="Systems thinking diagram" loading="lazy"/>
+            - ##### Continuously refine and revise the product
+        - <Image src={community} alt="Systems thinking diagram" loading="lazy"/>
+            - ##### Design with respect to the communities involved
+    </div>
+</Slide>
+
+<Slide centered>
+###### Discover and Address the Proper Root Cause
+<div class = "slide-grid-two-column" style = "grid-template-columns: 20% 80%;">
+        <div>
+            <Image src={target} alt="Systems thinking diagram" loading="lazy"/>
+        </div>
+        <div style = "align-content: center;">
+            Our semester starts here with a single rhetorical problem:
+            > The main goal of this course is to enable you to complete a single larger-scale personal portfolio project. 
+            > Students may choose to display other types of projects from discplines including, but not limited to, 
+            > computer science. While this project occurs over the course of the entire semester, there will be periodic 
+            > benchmarking assignments to assess student progress on the various planning and building tasks inherent in 
+            > creating a complete, polished, personal website.
+
+            - What is the "root cause" of our problem?
+            - How do we know it's the right one?
+            - How do we propose to address it?
+        </div>
+    </div>
+</Slide>
+
+<Slide centered>
+> The main goal of this course is to enable you to complete a single larger-scale `personal portfolio` project. 
+> Students may choose to display other types of projects from `discplines` including, but not limited to, 
+> computer science. While this project occurs over the course of the entire semester, there will be periodic 
+> benchmarking assignments to assess student progress on the various planning and building tasks inherent in 
+> creating a `complete`, `polished`, personal `website`.
+
+|Term |Design implications                                             |
+|:----|:-------------------------------------------------|
+|personal portfolio | A portfolio is a kind of genre of communication; communication requires understanding audience and the various forms of communication they validate and accepts |
+|disciplines        | Individual disiplines have their own conventions, requirements, evaluations and expectations; how do you meet yours? |
+|complete           | Both a level of finish and a testing benchmark; various topics in this course will challenge this idea |
+|polished           | Similar to `complete`ness, this is a testing benchmark and a clear understanding of conventions and practices |
+|website            | Requires a particular set of tech and systems to implement and maintain; these are part of the design calculation |
+</Slide>
+
+<Slide centered>
+    ### The Communication Problem
+    <div class = "slide-grid-two-column" style = "align-items: unset;">
+        <div>
+            <figure>
+                > we’re left with a nasty paradox: we’re forced to demonstrate the
+                > value and essence of our work in a visual medium, though our work
+                > itself isn’t especially visual.
+            <figcaption>Rosenfeld, Morville, Arango, pp. 391</figcaption>
+            </figure>
+        </div>
+        <div>
+        To solve this, we're starting with `Information Architectures` and `Content Inventories` for
+        two (2) primary reasons. These are diagrams which:
+        1. "define content components" (i.e. what a unit of content _is_)
+        2. illustrate the connection between information and how it serves an audience
+        </div>
+    </div>
+</Slide>
+
+<Slide>
+#### Content Inventory
+    <figure>
+    > breaking down or combining existing content into content chunks 
+    > that are useful for inclusion in your environment. A content chunk 
+    > isn’t necessarily a sentence or a paragraph or a page. Rather, it 
+    > is the most finely grained portion of content that merits or requires
+    > individual treatment
+    <figcaption>Rosenfeld, Morville, Arango, pp. 415</figcaption>
+    </figure>
+    
+    A <dfn>content inventory</dfn> describes available content and where it can be found as well as content gaps that need to be filled.
+    <div class = "slide-grid-two-column" style = "align-items: unset;">
+    <figure>
+        <Image src={contentInventory} alt="Content inventory tool screen capture" loading="lazy"/>
+        <figcaption>Content Inventory Tool</figcaption>
+    </figure>
+    <figure>
+        <Image src={pageInventory} alt="Page inventory tool screen capture" loading="lazy"/>
+        <figcaption>Page Inventory Tool</figcaption>
+        </figure>
+    </div>
+</Slide>
+
+<Slide>
+#### Sitemaps
+
+We approach `Information Architecture` through a _sitemap_, a tool which:
+<figure>
+    > show[s] the relationships between information elements such
+    > as pages and other content components, and can be used to portray
+    > organization, navigation, and labeling systems. Both the diagram
+    > and the navigation system display the “shape” of the information
+    > space in overview, functioning as a condensed map for site developers 
+    > and users, respectively.
+    <figcaption>Rosenfeld, Morville, Arango, pp. 394-5</figcaption>
+</figure>
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+        <figure>
+            <Image src={contentMapping} alt="Content mapping tool screen capture" loading="lazy"/>
+            <figcaption>Content Mapping Tool</figcaption>
+        </figure>
+        <figure>
+            <Image src={exampleIA} alt="Example IA" loading="lazy"/>
+            <figcaption>Example Information Architecture</figcaption>
+        </figure>
+    </div>
+</Slide>
+### Figma
+
+![Figma logo](https://cdn.prod.website-files.com/59e16042ec229e00016d3a66/64309e7ce733f37f0a4c0880_Figma-rebrand-assets_Blog-hero.avif)
+
+<Aside type = "note">Allegheny College students enrolled in the `CMPSC 302: Web Design` course
+have already been given invitations to Figma.</Aside>
+
+To complete these exercises, students have been given a `FigJam` template to complete. FigJam
+is a whiteboarding tool similar to `tl;draw` and `Excalidraw`, but offers many more design-specific
+features. It is also an industrially-relevant and widely-used tool for planning, collaborating and,
+as we'll see in the next lesson, wireframing.
+
+To create an account, go to [figma.com](https://figma.com).
