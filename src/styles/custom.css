@@ -186,7 +186,6 @@ figcaption {
 	align-content: center;
 	vertical-align: center;
 	padding: 1rem;
-	overflow: hidden;
 }
 
 .slide-grid-two-column > * {
