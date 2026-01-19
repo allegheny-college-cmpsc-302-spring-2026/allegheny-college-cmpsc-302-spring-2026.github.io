@@ -1,0 +1,64 @@
+---
+title: Content and Information Architecture
+description: Summary of Content and IA terms and practices used in the course
+sidebar:
+  order: 3
+---
+import { Icon } from '@astrojs/starlight/components';
+import ColorSquare from '../../../components/ColorSquare.astro';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+import { Image } from 'astro:assets';
+
+import designThinking from '../../../assets/presentation-img/ia/design-thinking.webp';
+import systemsThinking from '../../../assets/presentation-img/ia/systems-thinking.png';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+This week, we meet a few design terms that help us both:
+
+1. plan for what kinds of content we need to design for
+2. understand the structure and connections between "places of information" on our portfolio
+
+## Learning Objectives
+
+This lesson addresses learning objectives:
+
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1RI-or6yHbfXZbMUJ6veENlta7IDzU_dn/view" target = "_blank">_Information Architecture_, Chapter 1 + 2 + 6 + 13</a>
+
+<Slide centered>
+## Content and Information Architecture
+</Slide>
+
+<Slide>
+In this course, we balance _two_ different kinds of thinking:
+    <div class = "slide-grid-two-column" style = "align-items: unset;">
+    <figure style = "text-align: center;">
+        <Image 
+            src={designThinking}
+            alt="Design thinking diagram"
+            loading="lazy"
+        />
+        <figcaption style = "line-height: unset; text-align: left;">Design Thinking</figcaption>
+    </figure>
+        <figure style = "margin-top: 0; text-align: justify;">
+        <Image 
+            src={systemsThinking}
+            alt="Systems thinking diagram"
+            loading="lazy"
+        />
+        <figcaption style = "line-height: unset;">Systems Thinking</figcaption>
+    </figure>
+</div>
+</Slide>
