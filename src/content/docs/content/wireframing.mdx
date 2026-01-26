@@ -1,0 +1,114 @@
+---
+title: Sketches, Wireframes, and Mockups
+description: The paper-to-digital process of designing pages
+sidebar:
+  order: 3
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+import simpleFrame from '../../../assets/presentation-img/wireframes/simple-wireframe.png';
+import fullSketchSet from '../../../assets/presentation-img/wireframes/full-sketch-set.png';
+import ideate from '../../../assets/presentation-img/wireframes/ideate.svg';
+import compare from '../../../assets/presentation-img/wireframes/compare.svg';
+import revise from '../../../assets/presentation-img/wireframes/revise.svg';
+import warmup from '../../../assets/presentation-img/wireframes/sketch-warmup.svg';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+Over the course of a couple activities and working in Figma, we'll begin to develop the
+physical structure and appearance of our portfolio sites.
+
+## Learning Objectives
+
+This lesson addresses learning objectives:
+
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1SKenrvlIdFnnyse37cD8KfLzj-ulXYOD/view?usp=sharing&page=28" target = "_blank">_Hello Web Design_, Chapter 3</a>
+
+<Slide centered>
+## Sketching, Wireframing, and Mockups
+</Slide>
+
+<Slide centered>
+<div class = "slide-grid-two-column">
+    <div>
+        <Image 
+            src={simpleFrame}
+            alt="Complex wireframe on graph paper"
+            loading="lazy"
+        />
+    </div>
+    <div style = "margin-top: 0px;">
+        ### Sketching
+        * Provides a low-fidelity, rapid prototype
+        * Creates a situation on which designers can quickly revise/translate abstract concepts
+        * Contributes to faster, lower-stakes ideation
+        * Develops a clearer conceptual foundation for final wireframes
+        * Easy to develop multiple "looks" per page and compare them
+    </div>
+</div>
+</Slide>
+
+<Image 
+    src={fullSketchSet}
+    alt="Complex wireframe on graph paper"
+    loading="lazy"
+/>
+
+<Slide>
+#### Rules for Sketching
+* Focus only on major elements
+  * Do not add detail like wording unless it's a major-level heading, or similar
+* Show actions or movement through arrows or other clear indicator
+* Build each sketch in _layers_
+  * Add the overall framing elements, then the next important, and so on
+* Add interactions with post-it note instructions
+* Photocopy your best sketches to create a platform on which to iterate
+* Make multiple sketches for each page
+* Make notes _on_ the sketches
+
+Ultimately, follow something close to a _design thinking_ process for this step:
+<div class = "slide-grid-table-display-three">
+    - <Image src={ideate} alt="Systems thinking diagram" loading="lazy"/>
+        - ##### Devise
+    - <Image src={compare} alt="Systems thinking diagram" loading="lazy"/>
+        - ##### Compare
+    - <Image src={revise} alt="Systems thinking diagram" loading="lazy"/>
+        - ##### Take Notes
+</div>
+</Slide>
+
+<Aside>
+#### Activity: Sketching
+
+##### Warmup
+
+Below, you'll find a wireframe of a WebCo's site
+
+Your job is two-fold:
+
+1. Sketch the current layout
+2. Provide an alternate view that captures the same elements, but 
+
+<Image src={warmup} alt="Systems thinking diagram" loading="lazy" style = "margin: 0 auto;"/>
+
+##### The Real Deal
+Using your current page Information Architectures for guidance, make `3` sketches
+of each of the pages that you plant o 
+</Aside>
