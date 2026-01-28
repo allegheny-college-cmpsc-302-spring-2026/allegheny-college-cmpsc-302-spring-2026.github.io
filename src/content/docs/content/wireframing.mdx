@@ -15,6 +15,7 @@ import SlideOnly from '../../../components/Slides/SlideOnly.astro';
 import Presentation from '../../../components/Slides/Presentation.astro';
 
 import simpleFrame from '../../../assets/presentation-img/wireframes/simple-wireframe.png';
+import wireFrame from '../../../assets/presentation-img/wireframes/plain-wireframe.png';
 import fullSketchSet from '../../../assets/presentation-img/wireframes/full-sketch-set.png';
 import ideate from '../../../assets/presentation-img/wireframes/ideate.svg';
 import compare from '../../../assets/presentation-img/wireframes/compare.svg';
@@ -119,3 +120,56 @@ when `3` will do.
 Using the paper provided, sketch potential layouts for your content, keeping our guidelines
 in mind.
 </Aside>
+
+<Slide centered>
+<div class = "slide-grid-two-column">
+    <div>
+    ### Wireframing
+    * more precise than sketching
+    * often shared with front-end developers, but _not_ clients
+    * minimal color and design embellishments
+    * purpose is to get design from paper-to-digital quickly
+    </div>
+    <div style = "margin-top: 0px;">
+        <Image 
+            src={wireFrame}
+            alt="A simple wireframe"
+            loading="lazy"
+        />
+    </div>
+</div>
+</Slide>
+
+<Slide centered>
+#### Tips for Wireframing
+
+* begin the process only when your design goals are clear
+* design for the right sizes
+  * for this course, we're concentrating on Desktop and Mobile
+* use the process to develop consistent design "rules"
+  * e.g., all images are `x` width apart, and `y` units separated from headings
+* develop _components_ when you encounter a control or block you plan to reuse
+* do not become overly attached to your wireframes; they will change
+</Slide>
+
+#### Tools for wireframing
+
+![Figma logo](https://cdn.prod.website-files.com/59e16042ec229e00016d3a66/64309e7ce733f37f0a4c0880_Figma-rebrand-assets_Blog-hero.avif)
+
+As with our [information architecture](/content/ia), we're going to use `Figma`, an
+industry-standard design software. 
+
+<Slide>
+<Aside>
+#### Activity: Wireframing
+<div class = "slide-grid-two-column">
+    <div style = "margin-top: 0px;">
+        <Image src={warmup} alt="Systems thinking diagram" loading="lazy" style = "margin: 1rem auto;"/>
+    </div>
+    <div>
+    For practice, let's try to recreate the wireframe pictured above. Below, you'll find some
+    resources for doing just that.
+    </div>
+</div>
+</Aside>
+</Slide>
