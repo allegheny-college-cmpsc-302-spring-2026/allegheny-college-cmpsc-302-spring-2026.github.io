@@ -4,8 +4,7 @@ interface contentRow {
     topic: string,
     noClass: boolean,
     readings: string[],
-    assignment: string,
-    assignment_url: string,
+    assignments: string[],
     presentation_url: string,
     dates: classSession[]
 };
@@ -17,7 +16,7 @@ interface classSession {
 const {content, unitOffset} = Astro.props;
 import DayOfWeek from './DayOfWeek.astro';
 import LabMarker from './LabMarker.astro';
-import ReadingAssignments from './ReadingAssignments.astro';
+import MultipleEntry from './MultipleEntries.astro';
 ---
 <div class = "table-container">
     <table width='100%'>
@@ -42,15 +41,12 @@ import ReadingAssignments from './ReadingAssignments.astro';
 
             {!entry.noClass ? 
                 <!-- Reading assignments -->
-                <ReadingAssignments readings={entry.readings} />
+                <MultipleEntry items={entry.readings} />
                 <!-- Reading assignments -->
 
-                <tr>
-                    <td colspan = 1><Icon name = "approve-check" /></td>
-                    <td colspan = 2>
-                        <a href = {entry.assignment_url} target = "_blank">{!entry.noClass && entry.assignment}</a>
-                    </td>
-                </tr>
+                <!-- Benchmark assignments -->
+                <MultipleEntry items={entry.assignments} />
+                <!-- Benchmark assignments -->
                 <tr>
                     <td colspan = 1><Icon name = "seti:notebook" /></td>
                     <td colspan = 2>

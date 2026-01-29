@@ -1,0 +1,18 @@
+---
+const {items} = Astro.props;
+import { Icon } from '@astrojs/starlight/components';
+import type { StarlightIcon } from '@astrojs/starlight/types';
+interface item {
+    title: string,
+    icon: StarlightIcon
+    url: string
+}
+---
+{items.map((entry:item) => (
+    <tr>
+        <td colspan = 1><Icon name = {entry.icon} /></td>
+        <td colspan = 2>
+            <a href = {entry.url} target = "_blank">{entry.title}</a>
+        </td>
+    </tr>
+))}
