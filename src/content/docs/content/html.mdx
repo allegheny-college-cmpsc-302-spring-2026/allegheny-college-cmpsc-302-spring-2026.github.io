@@ -1,0 +1,176 @@
+---
+title: HTML and Page Structure
+description: Creating the supporting information elements for sites
+sidebar:
+  order: 4
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+`HTML` (Hypertext Markup Language) provides the "skeleton" of your website, the underlying
+structure and hierarchy for information. Other similar languages like `Markdown` or `RST`
+do the same thing. In essence, it organizes your pages. `CSS`, on the other hand _styles_
+these pages.
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+5. Compare and select web technologies such as static site generators or frameworks as appropriate candidates for building web sites.
+Course Resources
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with HTML"</a>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide centered>
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <div>
+    ### <dfn>Semantics</dfn>
+    > ...refers to the meaning of a piece of code — for example "what effect does running that line of JavaScript have?", 
+    > or "what purpose or role does that HTML element have" (rather than "what does it look like?".)
+    </div>
+    <div>
+    ### <dfn>Design</dfn>
+    > ...the process of planning, conceptualizing, and arranging content online to create the look, feel, and functionality of a website
+    </div>
+</div>
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <div>
+        <img src = "https://www.w3.org/html/logo/badge/html5-badge-h-semantics.png" style = "margin: 0 auto;" />
+        ### HTML
+        * provides _semantic structure_ for content
+        * creates a hierarchy
+        * divides pages into `element`s by using `tag`s
+        * has implications for meaning rather than solely for design
+    </div>
+    <div>
+        <img src = "https://raw.githubusercontent.com/CSS-Next/logo.css/main/css.svg" style = "height: 64px; margin: 0 auto;" />
+        ### CSS
+        * provides _design_ and (limited) interactivity for information
+        * creates a cohesive, visual design languages
+        * uses `selector`s to affect particular `element`s of a page
+        * is concerned with _aesthetic_ content rather that _semantic_ meaning
+    </div>
+</div>
+</Slide>
+
+<Slide>
+### The Role of HTML
+
+Proposed in 1980 by the legend [Sir Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee),
+HTML's current specification started to emerge in 1991 with the creation of a proposal for `18` `element`s,
+though it would take until 1993 for a formal specification.
+
+HTML rests on a few principles:
+* HTML creates _documents_, which have
+* limited base interactivity, largely meant to
+* connect and provide context for information, rendered
+* in a software referred to as a _browser_
+
+HTML _can_:
+* embed scripting languages such as `Javascript`
+* use `Cascading Style Sheets` (`CSS`)
+* include media such as images or video
+* use interactive forms to provide or change web content
+</Slide>
+
+
+<Slide>
+### Markup
+
+The `Markup` portion of `HTML` means that the language uses `tag`s to _annotate_ information,
+that is: HTML provides additional information _about_ the information presented. This can include:
+* content type
+* content role
+* information hierarchy
+* links to content
+* inclusion of additional page resources, including, but not limited to:
+  * hypermedia
+  * stylesheets
+  * scripts
+
+#### `Tag`s
+
+Tags constitute the method of annotation. In all, there exist `142` distinct tags. Many
+feature additional `properties` which provide specific, context-based, information about 
+the information they annotate. Tags are:
+* surrounded by `<` and `>` symbols
+* case-insensitive, though convention dictates lower-case usage, e.g. `<title>` vs. `<TITLE>`
+* some are "self-closing," while others require closing tags around information, e.g.:
+  * `<strong>Text</strong>` producing <strong>Text</strong>
+  * `<br />` which produces <br/> a line break
+</Slide>
+
+<Slide>
+#### `Element`s
+
+`Tag`s create `element`s. The term `element`, then, refers to both the information included in the
+`element` and the `tag`(s) that characterize that information. For example:
+```html
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Etiam venenatis libero eget nisl hendrerit, 
+et elementum nisl cursus.</p>
+```
+is refered to as a paragraph `element` and is rendered:
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Etiam venenatis libero eget nisl hendrerit, 
+et elementum nisl cursus.</p>
+
+Images are examples of "self-closing" tags that create elements (referred to as `void element`s in
+the literature). An example:
+```html
+<img 
+    src="https://placecats.com/100/100" 
+    width = "100" 
+    height = "100" 
+    alt = "A pair of cute cats" 
+/>
+```
+Rendered as:
+<img 
+    src="https://placecats.com/100/100" 
+    width = "100" 
+    height = "100" 
+    alt = "A pair of cute cats" 
+/>
+</Slide>
+
+<Slide>
+In the case of our `img` element, we notice several different _properties_:
+* `src`
+* `width`
+* `height`
+* `alt`
+
+While the kinds of properties available depend largely on the `tag`/`element` itself, here:
+
+|Property |Meaning |
+|:--------|:-------|
+|`src`    |Source for image, typically a `URL` |
+|`width`  |Specified image width, in pixels    |
+|`height` |Specified image height, in pixels   |
+|`alt`    |Alternative text to display if image doesn't load _and_ for accessibility tools like screen readers |
+
+</Slide>
