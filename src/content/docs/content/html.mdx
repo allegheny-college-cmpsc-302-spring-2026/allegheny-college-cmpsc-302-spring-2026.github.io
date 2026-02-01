@@ -38,6 +38,12 @@ Course Resources
 
 > <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with HTML"</a>
 
+<Aside>
+This textbook serves as a good way to gain an approachable entry to learning HTML. While we
+may do some limited exercises from the book, we will more likely use it, among other resources,
+as a reference.
+</Aside>
+
 <Slide centered>
 
 ## {frontmatter.title}
@@ -168,9 +174,54 @@ While the kinds of properties available depend largely on the `tag`/`element` it
 
 |Property |Meaning |
 |:--------|:-------|
-|`src`    |Source for image, typically a `URL` |
+|`src`    |Source for image, typically a `URL` (relative _or_ absolute) |
 |`width`  |Specified image width, in pixels    |
 |`height` |Specified image height, in pixels   |
 |`alt`    |Alternative text to display if image doesn't load _and_ for accessibility tools like screen readers |
 
+</Slide>
+
+<Slide centered>
+As for the `tag`s that create `element`s, it's unlikely that a developer will ever use _all_ of them, at least
+in a single page. However, the list below provides a concise view of the most common:
+
+`<head>`, `<title>`, `<body>`, `<main>`, `<header>`, `<footer>`, `<section>`, `<a>`, `<p>`, `<div>`, `<span>`, `<details>`, 
+`<img>`, `<figure>`, `<figcaption>`, `<nav>`, `<ul>`, `<ol>`, `<li>`
+
+Each has a _default_ representation in a _browser_, as the brower's job is to render content, even if it's not
+necessarily valid HTML. We override this default view using a `stylesheet` (`CSS`), which takes the place of
+a given browser's "root" stylesheet.
+
+Most of the above are _not_ `void elements`, so they require content and closing tags.
+
+</Slide>
+
+<Slide centered>
+### Beginning a Page
+
+The first step to creating a given page is to develop it as a `document`, using a structure like that below. The
+HTML below includes _comments_ to describe the various parts.
+```html
+<!-- Set the document type to HTML -->
+<!Doctype html>
+<!-- Create the root element -->
+<html lang="en">
+    <!-- Create page metadata, known as the "head" -->
+	<head>
+        <-- Add metadata like character set, screen size, and page title -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+	</head>
+    <!-- Create visible body of the page -->
+	<body>
+        <!-- Designate the following as the main content of the page -->
+        <main>
+            <!-- Include a heading on the page -->
+            <h1>Astro</h1>
+        </main>
+	</body>
+<!-- Close the root element, end the page -->
+</html>
+```
 </Slide>
