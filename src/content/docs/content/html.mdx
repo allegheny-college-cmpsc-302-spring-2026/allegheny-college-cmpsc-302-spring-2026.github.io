@@ -181,7 +181,6 @@ While the kinds of properties available depend largely on the `tag`/`element` it
 
 </Slide>
 
-<Slide centered>
 As for the `tag`s that create `element`s, it's unlikely that a developer will ever use _all_ of them, at least
 in a single page. However, the list below provides a concise view of the most common:
 
@@ -194,9 +193,7 @@ a given browser's "root" stylesheet.
 
 Most of the above are _not_ `void elements`, so they require content and closing tags.
 
-</Slide>
-
-<Slide centered>
+<Slide>
 ### Beginning a Page
 
 The first step to creating a given page is to develop it as a `document`, using a structure like that below. The
@@ -206,14 +203,14 @@ HTML below includes _comments_ to describe the various parts.
 <!Doctype html>
 <!-- Create the root element -->
 <html lang="en">
-    <!-- Create page metadata, known as the "head" -->
+  <!-- Create page metadata, known as the "head" -->
 	<head>
-        <-- Add metadata like character set, screen size, and page title -->
+    <!-- Add metadata like character set, screen size, and page title -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Astro</title>
 	</head>
-    <!-- Create visible body of the page -->
+  <!-- Create visible body of the page -->
 	<body>
         <!-- Designate the following as the main content of the page -->
         <main>
@@ -225,3 +222,65 @@ HTML below includes _comments_ to describe the various parts.
 </html>
 ```
 </Slide>
+<Slide>
+#### Things to Keep in Mind
+
+While we're not into how we _style_ pages yet, it's worth knowing that how you organize
+the information on your page _can_ affect styling. For example:
+```html
+<img 
+    src="https://placecats.com/200/200" 
+    width = "200" 
+    height = "200" 
+    alt = "A cat with a banana" 
+/>
+<img 
+    src="https://placecats.com/199/199" 
+    width = "199" 
+    height = "199" 
+    alt = "A cat staring directly at the viewer" 
+/>
+```
+<img 
+    src="https://placecats.com/200/200" 
+    width = "200" 
+    height = "200" 
+    alt = "A cat with a banana" 
+/>
+<img 
+    src="https://placecats.com/199/199" 
+    width = "199" 
+    height = "199" 
+    alt = "A cat staring directly at the viewer" 
+/>
+Browsers render content like a program's flow-of-control: top-to-bottom, left-to-right. Repositioning
+these elements in `CSS` is _possible_, but potentially changes the meaning of the page, and might
+cause some accessibility issues for assistive technologies that don't render CSS. If the above were two
+related steps to a process, it's possible that the reader has gotten them backwards!
+</Slide>
+
+<Slide>
+Similarly, designers should arrange content in a hierarchical view on a page. For example:
+```html
+<h1>A major heading</h1>
+A really big point.
+<h2>A sub-heading</h2>
+A medium point related to the big point.
+<h1>A sub-sub heading</h1>
+A small point, I want to relate to the medium point. 
+Look, I just wanted it to be big.
+```
+<h1>A major heading</h1>
+A really big point.
+<h2>A sub-heading</h2>
+A medium point related to the big point.
+<h1>A sub-sub heading</h1>
+A small point, I want to relate to the medium point. 
+Look, I just wanted it to be big.
+
+The above would cause problems, as the page says that the second `<h1>` should be at the same level 
+as a top-level point in the hierarchy. This confuses the information structure.
+</Slide>
+
+<Slide>
+Because this course uses `astro`
