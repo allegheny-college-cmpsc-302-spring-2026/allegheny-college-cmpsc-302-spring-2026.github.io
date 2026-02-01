@@ -1,0 +1,16 @@
+<script is:inline>
+    // Invert elements for all classes with given name
+    const swapThemeElement = () => {
+        let theme = document.documentElement.dataset.theme
+        let elements = Array.from(
+            document.getElementsByClassName('img__dark-to-light')
+        );
+        for (let element of elements) {
+            element.setAttribute('data-theme', theme);
+        } 
+    }
+    // Set up the triggers for theme swapping
+    let starlightTheme = document.querySelector('starlight-theme-select');
+    starlightTheme.addEventListener('change', swapThemeElement);
+    document.addEventListener('DOMContentLoaded', swapThemeElement);
+</script>

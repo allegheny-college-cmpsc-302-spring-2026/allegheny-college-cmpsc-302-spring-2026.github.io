@@ -47,6 +47,14 @@ figcaption {
 	cursor: pointer;
 }
 
+.img__dark-to-light[data-theme="dark"]{
+	filter: invert(1);
+}
+
+.img__dark-to-light[data-theme="light"]{
+	filter: invert(0);
+}
+
 .icon-prepend {
 	display: inline;
 	margin-right: 1rem;

@@ -1,0 +1,134 @@
+---
+title: Introduction to Astro
+description: Using astro to create sites
+sidebar:
+  order: 5
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+import Theme from '../../../components/ThemeModeDetector.astro';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+`astro` is a framework that allows us to remove some of the difficulties of writing a functional,
+accessible HTML site. We use this framework in our course to speed up our learning and provide
+exposure to modern web design practices and technologies.
+
+For more on installing `astro` and supporting tooling, see the [astro template](https://github.com/allegheny-college-cmpsc-302-spring-2026/astro-template)
+available in this course's Github organization. 
+
+<Aside type = "caution">
+To effectively use and _own_ this repository, it is _not_ suggested to `fork` it. Instead,
+use the following instructions to obtain your own personal copy of this resource:
+* Located and click the `Use this template` button in the upper right corner
+* Choose `Create a new repository`
+* On the resulting page, in the `Owner` drill-down, choose your personal Github account
+* Name the repository `YOUR_GITHUB_USERNAME.github.io`
+  * This creates a repository at the above easy-to-access URL
+</Aside>
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+5. Compare and select web technologies such as static site generators or frameworks as appropriate candidates for building web sites.
+Course Resources
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with HTML"</a>
+
+<Aside>
+This textbook serves as a good way to gain an approachable entry to learning HTML. While we
+may do some limited exercises from the book, we will more likely use it purely as a basic element
+reference.
+</Aside>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide>
+
+<img
+    src='https://astro.build/assets/press/astro-logo-dark.svg'
+    alt = "astrojs rocket A logo" 
+    style = "margin: 0 auto;"
+    class = "img__dark-to-light"
+/>
+Astro uses four primary file types to construct static websites. These are:
+* `md` (Markdown)
+* `mdx` (Extensible Markdown)
+* `astro` (Astro component files)
+* `ts` (Typescript component files)
+
+For our purposes, we'll largely work with `mdx` files, an example of which looks like our
+example of HTML from the [previous lesson](/content/html):
+
+```html
+---
+// Frontmatter
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+	</body>
+</html>
+```
+
+</Slide>
+
+<Slide>
+#### Mixing `Markdown` and `HTML`
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+<div>
+This course uses `astro` to implement our webpages. This means that we will use _both_ `Markdown` _and_
+`HTML` to create pages: mostly in terms of headings, lists, and paragraphs. More specific HTML formatting
+that goes beyond simple document construction will rely on writing HTML directly in our files.
+
+The following table lists Markdown tags that their HTML equivalents:
+</div>
+|Markdown Tag |HTML Tag |
+|:------------|:--------|
+|`#` - `######`|`<h1>`-`<h6>` |
+|`*`           |`<ul>`, `<li>`|
+|`1.`...       |`<ol>`, `<li>`|
+|Markdown table|`<table>` |
+|`![]()`         |`<img />` |
+|`[]()`          |`<a>`     |
+|`>`             |`<blockquote>`|
+|`**...**`       |`<strong>...</strong>`|
+|`_..._`         |`<em>...</em>` |
+|`---`           |`<hr />` |
+|Backticks       |`<pre>`|
+|Code fence      |`<code>`|
+</div>
+</Slide>
+
+<Slide>
+
+</Slide>
+
+{<Theme />}
