@@ -126,12 +126,82 @@ To start our design, we will concentrate on `.astro` files, mainly working in `H
 |`.md`     |Yes                |Yes, but not recommended        |
 |`.mdx`    |Yes                |Yes            |
 
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+<div>
 #### `.astro` files
 
 These constitute the main files for `components`. In this case, we're interested in:
 * reusable sections
 * creating maintainable layouts
-* semantic structure
+* HTML-powered semantic structure
+* implementing custom elements with full control over page structure
+</div>
+<div>
+#### `.mdx` files
+
+We use `mdx` files for pure `content`. In this case, we're interested in:
+* ease of maintaining content
+* overall maintainability, especially for those not interested in diving into HTML/elements
+* retaining some power over/use of HTML elements where necessarily
+* allowing others to use our layouts as `theme`s
+</div>
+</div>
+</Slide>
+
+<Slide>
+#### Components
+
+Either `.astro` or `.mdx` files can implement `components`, the heart of the `astro` build
+platform. Consider again our main index page for our current template site:
+
+```html
+<!Doctype html>
+<html lang="en">
+	<!-- This is common to all pages, but maybe the title isn't -->
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro</title>
+	</head>
+	<body>
+		<!-- TODO: Add a nav? -->
+
+		<!-- main body content might be a reusable component in this layout -->
+        <main>
+            <h1>Astro</h1>
+        </main>
+
+		<!-- TODO: Add a footer? -->
+	</body>
+</html>
+```
+</Slide>
+
+<Slide>
+Implementing components allows us to learn a little bit more about our file structure
+and gain some insight into how `astro` works. Here, we're going to add a few components
+and a layout.
+
+```
+/
+├── public/
+├── src/
+│   └── pages/
+│   |   └── index.astro
+│   └── layouts/
+│       └── BaseLayout.astro
+│   └── components/
+│       └── Footer.astro
+│       └── Header.astro
+│       └── Nav.astro
+```
+The `pages` folder constitutes the `route`s that our site offers, and right now it has a single
+`index` file, which responds at `/`, the lowest level of the URL hierarchy of our site. As we
+add different components, we will change how that file is structured, though not much about 
+its design.
+
+To follow along with changes made, head to [dluman.github.io](dluman.github.io) to check out
+how the files are coming together.
 </Slide>
 
 <Slide>
