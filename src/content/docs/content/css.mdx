@@ -363,6 +363,33 @@ than one column or more that one row. Here, we introduce a new unit as well, the
 ```
 </Slide>
 
+<Slide centered>
+#### The `div`
+
+The `div` is the first real _unsemantic_ element that we've encountered: it's a general use, multipurpose player.
+Generally speaking, the `div` is meant to provide two purposes:
+
+* create groups of semantically- or arbitrarily-related content
+* develop areas of pages to style
+
+As we will see in future weeks (and you might have already seen in other pages), the `div` is an accessibility
+issue, but is one of the (if not _the_) most used elements on the web. We'll square this when we talk about
+ways to make them more accessible through metadata.
+
+Anything can be "grouped" in a `div`, and we can apply `class` and/or `id` properties to them. It becomes
+necessary to use them, but if we do so in an intentional way, we can make our layouts rely on these generic
+items less.
+
+<Aside type = "danger">
+
+As the [MDN]() notes:
+> The `<div>` element should be used only when no other semantic 
+> element (such as `<article>` or `<nav>`) is appropriate.
+
+</Aside>
+
+</Slide>
+
 <Aside>
 ### Activity: Creating a single page layout using `astro`
 
