@@ -1,0 +1,146 @@
+---
+title: Cascading Style Sheets (CSS)
+description: Creating the supporting aesthetic elements for sites
+sidebar:
+  order: 6
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+import zen1 from '../../../assets/presentation-img/CSS/css_zen_1.png';
+import zen2 from '../../../assets/presentation-img/CSS/css_zen_2.png';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+If `HTML` provides the _semantic content_ of a site, CSS works to provide emphasis on visual
+hierarchy and aesthetic elements. While not necessarily _informational content_, using CSS well
+should enhance your ability to make a visual argument in the form of a web site. In addition,
+CSS can make or break the _accessibility_ of a site.
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+5. Compare and select web technologies such as static site generators or frameworks as appropriate candidates for building web sites.
+Course Resources
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with HTML"</a>
+
+<Aside>
+This textbook serves as a good way to gain an approachable entry to learning HTML. While we
+may do some limited exercises from the book, we will more likely use it purely as a basic element
+reference.
+</Aside>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide>
+### History and purpose of CSS
+
+* First proposed in 1994 by [Håkon Wium Lie](https://en.wikipedia.org/wiki/H%C3%A5kon_Wium_Lie) while working with Tim Berners-Lee
+* Codified in `CSS 1` in 1996, with significant contribution from [Bert Bos](https://en.wikipedia.org/wiki/Bert_Bos)
+* Authored in such a way that _the same markup_ can be used to present dramatically different page styles, for example:
+
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <figure>
+    <Image 
+        src={zen1}
+        alt="CSS Zen Garden 1: Linen"
+        loading="lazy"
+    />
+    <figcaption>[CSS Zen Garden: Garments](https://csszengarden.com/220/)</figcaption>
+    </figure>
+    <figure>
+        <Image 
+        src={zen2}
+        alt="CSS Zen Garden 2: Midcentury"
+        loading="lazy"
+    />
+    <figcaption>[CSS Zen Garden: Midcentury](https://csszengarden.com/221/)</figcaption>
+    </figure>
+</div>
+
+You may not believe it, but the underlying `HTML` for these pages is _the same_. The only difference: 
+The `CSS`.
+</Slide>
+
+<Slide centered>
+### `HTML` vs. (and?) `CSS`
+    |HTML |CSS |
+    |:----|:---|
+    |Uses tags and elements |Features properties targeting tags using rules |
+    |Provides information structure|Provides visual structure|
+    |Says nothing about element _states_|Adds ability to target element states (i.e. `hover`, `visited`) |
+    |Controls information architecture |Emphasizes visual hierarchy |
+    |Semantic tags contribute to accessibility|Clickable, well-spaced elements and color creates accessibility |
+</Slide>
+
+<Slide>
+### In practice
+
+Take for example the following HTML structure:
+
+<p class="codepen" data-height="600" data-default-tab="result" data-slug-hash="VYjEgZG" data-pen-title="Hello, World!" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/dluman/pen/VYjEgZG">
+  Hello, World!</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+</Slide>
+
+<Slide centered>
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+<div>
+```css
+/* Target the body tag/element */
+body {
+  /* Change page typeface */
+  font-family: system-ui;
+  /* Make the brackground orange */
+  background: #f06d06;
+  /* Make type white */
+  color: white;
+  /* Align all text in the middle */
+  text-align: center;
+}
+```
+</div>
+<div>
+    This brief snippet controls all `<body>` content. Adding or changing properties
+    in this block would affect anything contained therein. This constitues a `rule`, 
+    encapsulated by `{ }`.
+    
+    Examples:
+
+    * A `property`: `font-family`
+    * A `value`: `system-ui`
+
+    `CSS` can contain `comments`, pre- and post-fixed by `/* */`
+</div>
+</div>
+</Slide>
+
+<Slide>
+The above example only features a _few_ properties. You could see the [whole list](https://www.w3.org/Style/CSS/all-properties.en.html),
+but know that, like `HTML`, their context and relevant combinations varies widely by the individual property; not all of them
+use the same syntax, though there are several patterns to pick up.
+</Slide>

@@ -229,6 +229,18 @@ figcaption {
 }
 
 
+.presentation-overflow-hidden {
+    & .presentation-slide {
+		img {
+			max-height: unset !important;
+		}
+	}
+}
+
+.sl-markdown-content :is(iframe):not(:where(.not-content *)) {
+	height: 600px;
+}
+
 @media screen and (max-width: 768px) {
 	.course-info-table {
 		display: grid;
