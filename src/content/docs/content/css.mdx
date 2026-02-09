@@ -127,7 +127,7 @@ body {
 <div>
     This brief snippet controls all `<body>` content. Adding or changing properties
     in this block would affect anything contained therein. This constitues a `rule`, 
-    encapsulated by `{ }`.
+    encapsulated by `{ }`. Each property rule terminates with a `;`.
     
     Examples:
 
@@ -139,8 +139,26 @@ body {
 </div>
 </Slide>
 
-<Slide>
+<Slide centered>
 The above example only features a _few_ properties. You could see the [whole list](https://www.w3.org/Style/CSS/all-properties.en.html),
 but know that, like `HTML`, their context and relevant combinations varies widely by the individual property; not all of them
 use the same syntax, though there are several patterns to pick up.
+
+Some of the main syntax patterns:
+
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+* `font-size: 12pt;`
+* `margin: 0 auto;`
+* `border: 1px solid #D9D9D9;`
+* `display: block;`
+
+* `color: #FFFFFF`
+* `margin: 0 1rem 2rem 3rem;`
+* `--printers-black: #222;`
+* `...`
+</div>
+
+You will memorize the ones you use the most, and look up those that you don't. While there may be some developers
+who can recite the majority from memory, it's highly unlikely that anyone does; mostly, completion and other
+automatic tools fill in.
 </Slide>
