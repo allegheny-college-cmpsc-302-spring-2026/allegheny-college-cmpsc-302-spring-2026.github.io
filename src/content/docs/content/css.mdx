@@ -16,6 +16,7 @@ import Presentation from '../../../components/Slides/Presentation.astro';
 
 import zen1 from '../../../assets/presentation-img/CSS/css_zen_1.png';
 import zen2 from '../../../assets/presentation-img/CSS/css_zen_2.png';
+import BoxModel from '../../../assets/presentation-img/CSS/pen_box.png';
 
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
@@ -62,11 +63,11 @@ reference.
 
 <div class = "slide-grid-two-column" style = "align-items: unset;">
     <figure>
-    <Image 
+        <Image 
         src={zen1}
         alt="CSS Zen Garden 1: Linen"
         loading="lazy"
-    />
+        />
     <figcaption>[CSS Zen Garden: Garments](https://csszengarden.com/220/)</figcaption>
     </figure>
     <figure>
@@ -74,7 +75,7 @@ reference.
         src={zen2}
         alt="CSS Zen Garden 2: Midcentury"
         loading="lazy"
-    />
+        />
     <figcaption>[CSS Zen Garden: Midcentury](https://csszengarden.com/221/)</figcaption>
     </figure>
 </div>
@@ -147,15 +148,18 @@ use the same syntax, though there are several patterns to pick up.
 Some of the main syntax patterns:
 
 <div class = "slide-grid-two-column" style = "align-items: unset;">
+<div>
 * `font-size: 12pt;`
 * `margin: 0 auto;`
 * `border: 1px solid #D9D9D9;`
 * `display: block;`
-
+</div>
+<div>
 * `color: #FFFFFF`
 * `margin: 0 1rem 2rem 3rem;`
 * `--printers-black: #222;`
 * `...`
+</div>
 </div>
 
 You will memorize the ones you use the most, and look up those that you don't. While there may be some developers
@@ -163,6 +167,62 @@ who can recite the majority from memory, it's highly unlikely that anyone does; 
 automatic tools fill in.
 </Slide>
 
-<Slide>
+<Slide centered>
 ### The Box Model
+<figure>
+    ![MDN Box model showing an element surrounded by padding and margin](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model/box-model-devtools.png)
+    <figcaption>[The Box Model (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model)</figcaption>
+</figure>
+The above diagram demonstrates a core principle of CSS and the Document Object Model (DOM). Simply put:
+
+> Everything in CSS is represented as a box.
+
+The model used contains a few elements in the following order:
+* the content
+* `padding`
+* `border`
+* `margin`
+
+For example:
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+    <div>
+    <p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="LEZgqRJ" data-pen-title="Untitled" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+        <span>See the Pen <a href="https://codepen.io/dluman/pen/LEZgqRJ">
+    Untitled</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://public.codepenassets.com/embed/index.js"></script>
+    </div>
+    <div style = "align-content: center; align-items: center;">
+        The following diagram represents the box model representation of the element at left from the
+        _outside_-_in_:
+        * `margin` of `48px` (`3rem`)
+        * `border` of `16px` (`1rem`)
+        * `padding` of `48px` (`3rem`)
+
+        <Image 
+            src={BoxModel}
+            alt="Box model representing diagram at left"
+            loading="lazy"
+        />
+        
+        <dl>
+            <dt>`padding`</dt> 
+            <dd>represents additional spacing _inside_ an element</dd>
+            <dt>`border`</dt>
+            <dd>represents the border _around_ an element</dd>
+            <dt>`margin`</dt>
+            <dd>indicates the area _around_ the border, between elements</dd>
+        </dl>
+    </div>
+</div>
+
+</Slide>
+
+<Slide centered>
+### `rem`s, `em`s, `px`?
+CSS features a number of different sizing units. Some may be more familiar to you than others:
+|Unit |Meaning |
+|:----|:-------|
+|
 </Slide>
