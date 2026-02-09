@@ -17,6 +17,7 @@ import Presentation from '../../../components/Slides/Presentation.astro';
 import zen1 from '../../../assets/presentation-img/CSS/css_zen_1.png';
 import zen2 from '../../../assets/presentation-img/CSS/css_zen_2.png';
 import BoxModel from '../../../assets/presentation-img/CSS/pen_box.png';
+import BaseLayout from '../../../assets/presentation-img/CSS/base_layout.png';
 
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
@@ -169,6 +170,7 @@ automatic tools fill in.
 
 <Slide centered>
 ### The Box Model
+
 <figure>
     ![MDN Box model showing an element surrounded by padding and margin](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model/box-model-devtools.png)
     <figcaption>[The Box Model (MDN)](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model)</figcaption>
@@ -182,6 +184,14 @@ The model used contains a few elements in the following order:
 * `padding`
 * `border`
 * `margin`
+</Slide>
+
+<Slide>
+#### The Standard Model
+
+The standard model allocates the majority of size to the _content_. This is the default assumption. Developers
+_can_ specify this by using the `box-sizing: content-box` property, but (as written) this setting is the
+default implied by the browser.
 
 For example:
 <div class = "slide-grid-two-column" style = "align-items: unset;">
@@ -205,7 +215,7 @@ For example:
             alt="Box model representing diagram at left"
             loading="lazy"
         />
-        
+
         <dl>
             <dt>`padding`</dt> 
             <dd>represents additional spacing _inside_ an element</dd>
@@ -219,10 +229,148 @@ For example:
 
 </Slide>
 
+<Slide>
+#### The alternate model
+
+The alternate model _includes_ the `padding`, `margin`, and `border` in its sizing calculation, giving
+the remainder to the content. This is triggered by giving an element the `box-sizing: border-box;` property.
+<div class = "slide-grid-two-column" style = "align-items: unset;">
+<div>
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="myEzvqN" data-pen-title="Untitled" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/dluman/pen/myEzvqN">
+  Untitled</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+</div>
+<div>
+Notice how the content here appears _smaller_ due to the deprioritization of content space allocation. This 
+approach is used more often in modern web design, as it prioritizes the _elements_ rather than the content.
+Doing so permits layouts to line up more easily.
+</div>
+</div>
+</Slide>
+
 <Slide centered>
+
 ### `rem`s, `em`s, `px`?
 CSS features a number of different sizing units. Some may be more familiar to you than others:
 |Unit |Meaning |
 |:----|:-------|
-|
+|`px` |Pixel   |
+|`pt` |Point   |
+|`%`  |% of _parent_ element |
+|`rem`|Reference to root element size (typically `16px`) |
+|`em` |Refernece to element _font size_ |
+|`vh` |Viewport height |
+|`vw` |Viewport width  |
+
 </Slide>
+
+<Slide>
+### `block` elements and `inline` elements
+
+Using the simplest approach:
+
+<dl>
+    <dd>`block`</dd> 
+    <dt>elements take up full available width and always start a new line</dt>
+    <dd>`inline`</dd>
+    <dt>elements only take up the space necessitated by the content and _do not_ create new lines</dt>
+    <dd>`inline-block`</dd>
+    <dt>elements allow setting width, height, et al., _like_ a block element, but flow with the content line</dt>
+
+</dl>
+
+Consider:
+
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="ByzqMVK" data-pen-title="Block, inline, and inline-block" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/dluman/pen/ByzqMVK">
+  Block, inline, and inline-block</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+</Slide>
+
+<Slide>
+### Creating a basic layout
+
+#### `class`es and `id`s
+
+`CSS` binds itself to `HTML` by changing:
+
+* elements
+* `class`es
+* `id`s 
+
+|Type |Role |
+|:----|:-----|
+|elements |provide `HTML` structure and semantic meaning |
+|`class`es|create reusable categories sharing styles |
+|`id`s |represent unique items (one per page) styled distinctly |
+
+The following minimal example demonstrates:
+
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="xbOyMaQ" data-pen-title="Classes and IDs" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/dluman/pen/xbOyMaQ">
+  Classes and IDs</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+
+|Type |Role |
+|:----|:-----|
+|`class`es| <ul><li>repeatable</li><li>prefixed in stylesheets with `.`</li></ul> |
+|`id`s |<ul><li>unique</li><li>prefixed in stylesheets with `#`</li></ul> |
+
+In our above example, however, notice that the implementation of these properties _do not_ need `.` or `#` in `HTML`:
+they are attached to elemnents via the `class` and `id` _attributes_.
+
+</Slide>
+
+<Slide>
+#### Setting up a layout: the `display` property
+
+Designers enjoy a greater range of ability when laying out pages that the original `HTML`/`CSS` specifications provided.
+Typically, the modern web is laid out using some combination of `grid` elements and `flexbox` layouts.
+
+##### `grid`
+
+For this session, we will focus on `grid` layouts. 
+
+<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="jEreddL" data-pen-title="Grid" data-user="dluman" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+      <span>See the Pen <a href="https://codepen.io/dluman/pen/jEreddL">
+  Grid</a> by Douglas Luman (<a href="https://codepen.io/dluman">@dluman</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+      </p>
+      <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+Using the `display: grid;` property allows designers to create aligned designs in _two_ dimensions (`x` and `y`). Much
+like a table in Excel or Google Sheets, there are creative ways to _merge_ cells to allow content to take up more
+than one column or more that one row. Here, we introduce a new unit as well, the `fr`:
+
+```css
+.grid__2_col {
+    /* Display this block element as a grid */
+    display: grid;
+    /* Make it 50 x 1 unit of viewport width */
+    width: 50vw;
+    /* Make each column 1 fractional unit (fr), and repeat twice (2) */
+    grid-template-columns: repeat(2, 1fr);
+}
+```
+</Slide>
+
+<Aside>
+### Activity: Creating a single page layout using `astro`
+
+Surprisingly, you know enough to create the following layout from raw `HTML`:
+    <Image 
+    src={BaseLayout}
+    alt="WebCo layout"
+    loading="lazy"
+    />
+
+</Aside>
