@@ -1,0 +1,200 @@
+---
+title: Accessibility
+description: Creating a supportive structure for your sites
+sidebar:
+  order: 7
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+import zen1 from '../../../assets/presentation-img/CSS/css_zen_1.png';
+import zen2 from '../../../assets/presentation-img/CSS/css_zen_2.png';
+import BoxModel from '../../../assets/presentation-img/CSS/pen_box.png';
+import BaseLayout from '../../../assets/presentation-img/CSS/base_layout.png';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+If `HTML` provides the _semantic content_ of a site, CSS works to provide emphasis on visual
+hierarchy and aesthetic elements. While not necessarily _informational content_, using CSS well
+should enhance your ability to make a visual argument in the form of a web site. In addition,
+CSS can make or break the _accessibility_ of a site.
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+5. Compare and select web technologies such as static site generators or frameworks as appropriate candidates for building web sites.
+Course Resources
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with HTML"</a>
+
+<Aside>
+This textbook serves as a good way to gain an approachable entry to learning HTML. While we
+may do some limited exercises from the book, we will more likely use it purely as a basic element
+reference.
+</Aside>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide highlight large>
+
+A couple of aspects to `accessibility`:
+
+> enabling as many people as possible to use websites, even when those people's abilities are limited in some way.
+>
+> <figcaption>[MDN, "Accessibility"](https://developer.mozilla.org/en-US/docs/Web/Accessibility)</figcaption>
+
+> The Web is fundamentally designed to work for all people, whatever their hardware, software, language, location, 
+> or ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, 
+>sight, and cognitive ability.
+>
+> <figcaption>[W3C, "Accessibility"](https://www.w3.org/standards/webdesign/accessibility)</figcaption>
+
+</Slide>
+
+<Slide>
+### WCAG
+
+These guidelines are developed, maintained, and advocated by the `WAI` (Web Accessibility Initative), a part of
+the `W3C` (World Wide Web Consortium). While they're not strictly a _law_, there can be legal reprecussions.
+In addition, search engines, agentic frameworks, and other technologies can (and do!) de-privilege sites that 
+don't follow the guidelines (to a certain extent). 
+
+The guidelines are referred to as the `WCAG` standard, currently on version `2.2`.
+</Slide>
+
+
+<Slide>
+In practice, that means somethink like the acronym `POUR`:
+
+![](https://www.a11y-collective.com/wp-content/uploads/2024/03/pour-acronym-explained-1536x587.png)
+
+That is, the web should be:
+
+<dl>
+<dt>Perceivable</dt>
+<dd>Content is accessible via multiple senses (`alt` tags, transcripts)</dd>
+<dt>Operable</dt>
+<dd>Content can be used from a variety of devices: not just a mouse.</dd>
+<dt>Understandable</dt>
+<dd>Navigation paths (both menus _and_ URLs) are consistent and well-labled; help messages are well-written and precise.</dd>
+<dt>Robust</dt>
+<dd>The site doesn't break when used with alternative technologies or in alternative viewports.</dd>
+</dl>
+
+</Slide>
+
+<Slide centered>
+#### Perceivability
+</Slide>
+<Slide centered>
+##### Provide alternatives for non-text content
+
+* All images that convey meaningful content should be given suitable alternative text.
+  * Use the `alt` tag on images
+* UI controls such as form elements and buttons should have text labels that describe their purpose.
+  * Use semantic tags where possible
+* Implement decorative (non-content) images, video, etc., in a way that is invisible to assistive technology, 
+so it doesn't confuse users.
+  * Implement all decorative items in `CSS`; avoid doing so with `<img>` tags
+</Slide>
+<Slide centered>
+##### Create content that can be presented in different ways
+
+* Any content structure—or visual relationship made between content—can also be determined programmatically, or be 
+inferred from text description. 
+* A sensible, logical reading order should be easy to determine for any content, even if it is visually presented in an unusual way. 
+The order should be made obvious by use of correct semantic elements (e.g., headings, paragraphs), with CSS being used 
+to create any unusual layout styles, irrespective of the markup.
+* Instructions for operating controls or understanding content do not rely on a single sense. 
+* Content does not restrict its view and operation to a single display orientation, such as portrait or landscape.
+
+</Slide>
+
+<Slide centered>
+#### Operability
+</Slide>
+
+<Slide centered>
+##### Make all functionality available from a keyboard
+
+* All functionality should be accessible using keyboard controls, unless it cannot be done using the keyboard
+    * However, the spec. insinuates that all functionality should be accessible using keyboard controls — with no exceptions.
+* If a single character key shortcut exists, then at least one of the following is true: single character key shortcuts can be turned off, remapped or are only active when the relevant user interface component is in focus.
+
+##### Seizures and Physical Reactions: Do not design content in a way that is known to cause seizures or physical reactions
+
+* Content doesn't contain any aspect that Flashes more than three times per second
+* Allow users to disable animations from interactions (unless the animation is essential).
+</Slide>
+
+<Slide centered>
+##### Provide ways to help users navigate, find content, and determine where they are
+
+* A mechanism should be provided that allows the user to skip straight to the main content or functionality available on the page, past the repeated features (such as the company logo or navigation).
+* Each web page should include an informative `<title>`
+* The purpose/destination of a link can be determined from the link text, or from its surroundings (e.g. surrounding text)
+* Heading (e.g., `<h2>`) and `<label>` elements clearly describe the purpose of the content and form elements they are supposed to be describing.
+</Slide>
+
+<Slide centered>
+#### Understandable
+</Slide>
+
+<Slide centered>
+##### Make text content readable and understandable
+
+* The default human language of each web page should be detectable via code (e.g., `<html lang = "en">`)
+* Where technical terms, jargon, or idioms/slang are used, definitions should be provided for such phrases/words.
+* If text is provided that requires a higher reading level that lower secondary education level (typically children around 11-14 years old), provide supplementary explainer material to help people who can't read it
+
+##### Make Web pages appear and operate in predictable ways
+
+* When a control or other page feature receives focus, it should not change the context in a way that may confuse or disorientate the user
+* When data is inputted into a control, or a setting is changed, context should not be changed unexpectedly
+* Navigation menu/control style and positioning should be consistent between different pages or views of a web page
+* Controls or components that have the same functionality should be identified in the same way across different pages or views
+
+</Slide>
+
+<Slide centered>
+##### When a user is filling out a form or choosing between options, any error that is detected should be clearly reported to the user, along with the form control that the error relates to.
+
+* When a user is filling out a form or choosing between options, any error that is detected should be clearly reported to the user, along with the form control that the error relates to
+* Clear instructions should be provided when data input is required
+* When an error is detected and suggestions for correction are known, provide these to the user (e.g., suggesting alternatives when the user is choosing a user name and has selected one that is already taken)
+* Provide instructions and other appropriate cues in context to aid form completion and submission
+</Slide>
+
+<Slide centered>
+#### Robustness
+</Slide>
+
+<Slide centered>
+##### Maximize compatibility with current and future user agents, including assistive technologies
+
+* Content should be well-formed so it can be parsed successfully by browsers and other user agents such as screen readers.
+  * (i.e., use latest HTML standards, such as semantic tags!)
+* The name and role of user interface components (e.g., form inputs, buttons, links, etc.) should be programmatically determinable
+  * When scripting custom components, you will need to use [ARIA roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Techniques) and other features to make sure your controls will be interpreted and are able to be used as intended
+
+</Slide>

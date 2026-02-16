@@ -241,6 +241,12 @@ figcaption {
 	height: 600px;
 }
 
+svg:after {
+	content: 'fefefw';
+}
+
+
+
 @media screen and (max-width: 768px) {
 	.course-info-table {
 		display: grid;
