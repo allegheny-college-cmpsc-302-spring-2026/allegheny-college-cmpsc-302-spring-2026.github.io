@@ -49,3 +49,80 @@ reference.
 ## {frontmatter.title}
 
 </Slide>
+
+<Slide centered>
+
+<Aside type = "danger" title="Look before you leap...">
+While ARIA is widely supported by modern browsers, developers should prefer using the correct semantic HTML 
+element over using ARIA, if such an element exists. For instance, native elements have built-in keyboard accessibility, 
+roles and states. However, if you choose to use ARIA, you are responsible for mimicking the equivalent browser behavior 
+in script.
+</Aside>
+
+</Slide>
+
+<Slide>
+
+### ARIA
+
+ARIA (Accessible Rich Internet Applications) `roles` and `attributes` allow elements which depart from the
+truly semantic web to gain semantic and functional relevance for `a11y`.
+
+First, some vocabulary:
+
+|Term |Purpose |
+|:----|:-------|
+|`role`|Adds semantic meaning to an element which does not have any inherent sematics |
+|`attributes`|Allows modification of element states and properties with respect to assistive technologies |
+
+</Slide>
+
+<Slide>
+#### ARIA "rules"
+
+As defined by the [W3C](https://www.w3.org/TR/using-aria/):
+
+1. Use native semantic elements first, only using ARIA where these elements don't exist, or accessibility features are not supported.
+2. Do not change native semantic elements unless absolutely necessarily
+3. All ARIA controls must be usable with keyboard control
+4. Accessible elements must have an accessible name
+5. ARIA attributes or roles added to parent elements will characterize child elements unless others are added at a lower level
+
+##### ARIA roles
+
+For example:
+
+<Aside type = "danger" title="Do Not">
+```html
+<h2 role = tab>Tabbed Heading</h2>
+```
+</Aside>
+
+<Aside title="Do">
+```html
+<div role = tab><h2>Tabbed Heading</h2></div>
+```
+</Aside>
+
+For more on the available ARIA roles, see the [original spec](https://www.w3.org/TR/using-aria/#aria-roles) and information
+on [per element usage](https://www.w3.org/TR/html-aria/#docconformance).
+
+</Slide>
+
+<Slide>
+##### ARIA attributes
+
+Attributes describe the states and properties of an element. Broadly speaking, defining these in HTML
+means using sensible default values representing _initial_ states, changing these when scripts alter
+their values in the course of page use.
+
+<Aside type = "caution">
+Some assistive technologies do not use Javascript. This means that a developers can't always rely
+on being able to change attributes or properties. In this case, choose reasonable
+starting states that accurately and helpful model content without assuming that users can change
+its orientation, sorting, state, et al.
+</Aside>
+
+
+For a full list of states, properties, and values, have a look at [this excellent Github repo](https://github.com/filipelinhares/WAI-ARIA-cheatsheet?tab=readme-ov-file#state-and-properties).
+</Slide>
