@@ -14,6 +14,8 @@ import Slide from '../../../components/Slides/Slide.astro';
 import SlideOnly from '../../../components/Slides/SlideOnly.astro';
 import Presentation from '../../../components/Slides/Presentation.astro';
 
+import BaseLayout from '../../../assets/presentation-img/CSS/base_layout.png';
+
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
 :::
@@ -145,3 +147,21 @@ and incorporates less overall maintenance work and, possibly, scripting work.
 
 For a full list of states, properties, and values, have a look at [this excellent Github repo](https://github.com/filipelinhares/WAI-ARIA-cheatsheet?tab=readme-ov-file#state-and-properties).
 </Slide>
+
+<Aside>
+#### Activity: What's wrong at WebCo?
+
+Recall good ol' WebCo?
+
+    <Image 
+      src={BaseLayout}
+      alt="WebCo layout"
+      loading="lazy"
+    />
+
+If we run our latest test suite on the site, you'll see that it _fails_ a few things.
+How can we make it pass? 
+
+> For a hint on a practice that will make your CSS changes easier, check out the addition
+> to the [CSS lesson](/content/css#making-css-maintenance-easier)
+</Aside>
