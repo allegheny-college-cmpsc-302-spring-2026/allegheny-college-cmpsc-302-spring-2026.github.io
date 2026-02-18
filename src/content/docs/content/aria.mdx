@@ -123,6 +123,25 @@ starting states that accurately and helpful model content without assuming that 
 its orientation, sorting, state, et al.
 </Aside>
 
+While this course will revisit ARIA attributes during work with Javascript, an example of where it's easier
+to use semantics demonstrates much of the above discussion. The cannonical example is a progress bar (courtesy
+of [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)). Initially,
+a developer _could_ build:
+```html
+<div
+  id="percent-loaded"
+  role="progressbar"
+  aria-valuenow="75"
+  aria-valuemin="0"
+  aria-valuemax="100"></div>
+```
+The above element is perfectly usable. It features a `role`, several attributes which model a progress bar
+and cater to accessibility. However, there exists a semantic `<progress`> element:
+```html
+<progress id="percent-loaded" value="75" max="100">75 %</progress>
+```
+This element has all of the above ARIA values _built in_ based on its semantic purpose. It's easier to use,
+and incorporates less overall maintenance work and, possibly, scripting work.
 
 For a full list of states, properties, and values, have a look at [this excellent Github repo](https://github.com/filipelinhares/WAI-ARIA-cheatsheet?tab=readme-ov-file#state-and-properties).
 </Slide>
