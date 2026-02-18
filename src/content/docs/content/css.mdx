@@ -403,3 +403,46 @@ Surprisingly, you know enough to create the following layout from raw `HTML`:
 
 Head to your portfolio site repository and find the `styling-pages-in-astro` branch!
 </Aside>
+
+<Slide>
+#### Making CSS maintenance easier
+
+Since 2022, the [CSS specification](https://www.w3.org/TR/css-variables-1/) supports CSS _variables_.
+These expressions are powerful tools in making sure that properties which need to be repeated use
+the _same values_ all the time.
+
+In practice, this uses the `:root` psuedo-element:
+```css
+:root {
+    --webco-color-purple-bg: #432194;
+    --webco-color-gray: #D9D9D9;
+    --webco-printer-black: #222;
+    --webco-white: #fff;
+}
+```
+Using these variables often looks like this:
+```css
+header {
+    background: var(--webco-color-gray); /* Notice the var({VARIABLE}) syntax*/
+    height: 3rem;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 3rem;
+}
+```
+This can be used for more than just colors, though. Take, for instance, standardizing a type face:
+```css
+:root
+{
+    --webco-primary-type: "Inter", sans-serif;
+}
+```
+Putting this into practice:
+```css
+html {
+    font-family: var(--webco-primary-type);
+}
+```
+Using variables for common values goes far toward maintaining unity and the overall polish of your
+site's aesthetic.
