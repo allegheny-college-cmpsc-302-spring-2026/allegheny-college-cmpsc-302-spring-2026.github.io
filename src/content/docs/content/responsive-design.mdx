@@ -1,0 +1,196 @@
+---
+title: Responsive Design
+description: Creating a supportive structure for your sites
+sidebar:
+  order: 9
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+import BaseLayout from '../../../assets/presentation-img/CSS/base_layout.png';
+import responsiveLayout from '../../../assets/presentation-img/responsive-design/webco-mobile.png';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+The web long predated the myriad devices that we now use to access information on the internet. To accommodate
+the proliferation of different devices and screens, the CSS spec introduced a feature known as a `media query`
+to address screens of different resolutions. As Bryce Watson and Michael Woo remind us:
+
+> Perhaps creating a responsive app is not high on your team's priority list right now. 
+> But one day it will be — and the conversion time frame might be very tight when that day comes.
+>
+> Ideally, all you need to do is add media query CSS and everything just works. But the only way that 
+> can happen is if the code readily adapts to responsive changes.
+>
+> <figcaption>[Mobile First - A Retrospective](https://innovation.ebayinc.com/stories/mobile-first-a-retrospective/)</figcaption>
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+4. Identify and use strategies of successful visual rhetoric for the web.
+5. Compare and select web technologies such as static site generators or frameworks as appropriate candidates for building web sites.
+Course Resources
+
+## Text
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with CSS"</a>
+
+<Aside>
+This textbook serves as a good way to gain an approachable entry to learning HTML. While we
+may do some limited exercises from the book, we will more likely use it purely as a basic element
+reference.
+</Aside>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide>
+### Responsive web design
+
+> a web design approach to make web pages render well on all screen sizes and 
+> resolutions while ensuring good usability.
+>
+> <figcaption>[MDN, "Responsive Web Design"](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)</figcaption>
+
+By itself, HTML is responsive as long as the page can determine the `viewport` width. However, choices that
+a browser may make can be surprising or unhelpful. CSS helps ensure uniformity between device types, but _only_
+if HTML can establish the `viewport`
+```html
+<head>
+  ...
+  <!-- This line ensures the browser can determine the viewport -->
+  <meta name="viewport" content="width=device-width" />
+</head>
+```
+Keep in mind that responsive design is not a separate technology: it is a method. Responsive design uses CSS
+with appropriate semantic HTML groups to effect designs that work across devices such as phones and even watches.
+</Slide>
+
+<Slide>
+#### Media queries
+
+CSS achieves responsiveness through `media query` directives. For example, the WebCo site uses:
+```txt
+@media screen and (max-width: 767px) {
+
+  nav {
+     grid-column: span 2;
+  }
+  
+  .full__three_column, .full__four_column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    row-gap: 3rem;
+    column-gap: 0;
+  }
+
+  .article__border_right:not(:last-of-type) {
+    border-right: none;
+  }
+
+  #search {
+    display: none;
+  }
+
+}
+```
+</Slide>
+
+<Slide>
+This query sets the following restrictions:
+* media type must be a `screen`
+* the viewport must attain a `max-width` of `767px`
+
+The `and` between the media type (`screen`) and the pixel-denoted width means that 
+_both_ of these must be true.
+
+At one time, more media types existed, but these have been deprecated and the available
+media types list is now:
+
+|Media type| Meaning |
+|:---------|:--------|
+|`screen`  | All devices that aren't requesting `print` |
+|`print`   | Devices requesting `print` layouts |
+|`all`     | All media regargless of requests |
+
+Note that the `and` operator exists. Developers may also use:
+* `not`
+* `only`
+* `or`
+
+While we're going to focus on usability via design elements, know that media queries can
+cover [much more](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media).
+</Slide>
+
+<Slide>
+#### `flex`ing
+
+Grids are great for `2`-dimensional layouts that need to control both horizontal and vertical
+layouts. However, what happens when we want to do a layout in only one direction? Let's return
+to our WebCo layout.
+</Slide>
+
+<Slide>
+There are a number of different positioning strategies, particularly the effect of:
+```txt
+ .full__three_column, .full__four_column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    row-gap: 3rem;
+    column-gap: 0;
+  }
+```
+<div class = "slide-grid-two-column" style = "align-items: unset">
+    <div style = "max-height: 100%; margin-bottom: 1rem;"><Image 
+    src={BaseLayout}
+    alt="WebCo layout"
+    loading="lazy"
+    /></div>
+
+    <div style = "max-height: 46vh; overflow-y: scroll;"><Image 
+    src={responsiveLayout}
+    alt="WebCo layout"
+    loading="lazy"
+    /></div>
+</div>
+</Slide>
+<Slide>
+In the above, we _overrule_ the `display: grid` set at the desktop level and substitute in `display: flex`
+with an additional `2` parameters: `flex-direction: column` and `flex: 1`, letting the browser know
+to flex vertically taking up `1` column.
+
+This is what it means to _cascade_ in a style sheet: more specific rules _add to_ or _replace_ less specific
+ones (namely in order of `selector` specificity or even order in the stylesheet).
+</Slide>
+<Slide>
+#### `position`ing
+
+To add a stick wicket to the proceedings, the way that we position items relative to each other plays
+in to creating usable design. CSS accommodates a number of postiions:
+
+|Position value |Meaning |
+|:--------------|:-------|
+|`absolute`     |Element supercedes the normal document flow, attaching to the closest positioned ancestor|
+|`relative`     |Element positioned as listed in hierarchy, but is then _offset against itself_|
+|`static`     |Element is positioned _exactly_ in the document hierarchy as written|
+|`fixed`     |Element is removed from the document flow, then positioned against the `viewport`|
+|`sticky`    |Element positions itself in the document flow, but "sticks" to its nearest ancestor with scrollable properties (usually the `viewport`|
+
+</Slide>
