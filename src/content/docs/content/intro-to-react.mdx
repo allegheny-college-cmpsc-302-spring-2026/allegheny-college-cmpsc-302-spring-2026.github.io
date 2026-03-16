@@ -1,0 +1,170 @@
+---
+title: Introduction to Javascript and React
+description: Creating a supportive structure for your sites
+sidebar:
+  order: 10
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+In the early web, sites contained nothing like the client-side interactivity which has come to constitute a contemporary standard
+for building performant, effective, usable sites. Since its introduction in 1995, using Javascript in practice has extended far beyond
+its original specification in addition to developing common, ubiquitous patterns and practices.
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+
+## Texts
+
+> <Icon name = "open-book" class = "icon-prepend" /> <a href = "https://drive.google.com/file/d/1MNpHMgSQRZFTkNbXDG8DDP_mKURhHiNI/view?usp=sharing" target = "_blank">The Coding Workbook, "Getting Started with CSS"</a>
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+![React Atomic logo](https://hostingassets.com/faq/4356.png)
+### React
+
+React is a Javascript library developed by Facebook in 2013. The library bridged a gap between web developer
+best practices for building modular, component-based sites, and ease-of-use for integrating interactivity at
+a component-by-component level.
+
+At the time, Javascript libraries (and even Javascript itself) affected the _entire DOM_; React introduced
+the principles that underlie the "Islands" architecture, re-rendering or modifying a narrower context with
+respect to content rather than needing to re-render an entire page. Since the introduction of React, Javascript
+itself has migrated more toward implementing similar principles at a language level, but does not have the
+same ability to "bundle" functionality and apparent aesthetics together as easily. Hence, in the "framework wars"
+that characterized the early 2010s to now, React has emerged as the clear all-around winner.
+
+<Slide centered>
+React is a library that implements Javascript. In effect, this means that:
+
+* React helps achieve common UI tasks using traditional Javascript patterns
+* React focuses on managing the user interface using a set of well-defined "syntactic sugar"
+* Using React allows developers to access a rich ecosystem of other librarys that codify well-known Javascript design patterns
+</Slide>
+
+<Slide centered>
+The key features of React include:
+
+* Component-based architecture
+* Use of `JSX` (Javascript XML)
+* Unidirectional data flow (parent to child)
+* Hooks (such as `useState` and `useEffect`)
+* Advanced server-side integrations that allow for complete web application development
+</Slide>
+
+<Slide>
+#### Hooks
+
+Hooks constitute a major reason why developers use React. Here, we examine two: `useState` and `useEffect`.
+
+##### `useState`
+
+We'll use a darkmode toggle as an example:
+```javascript
+const [isDark, setDarkMode] = useState(false);
+```
+`useState` returns `2` things:
+* a variable to manipulate
+* a function used to manipulate that variable
+
+When we:
+```javascript
+const HandleToggleChange = () => {
+    setDarkMode(isDark => !isDark);
+}
+```
+This leverages the `setDarkModeFunction` to do two things:
+* take a parameter called `isDark` (which is, in this case, the value of the `isDark` variable), and
+* set `isDark` to its oppositie (`True` to `False`, or vice-versa)
+</Slide>
+It's worth taking a moment to break down the `Javascript` here.
+<Slide>
+```javascript
+// const creates a constant variable which contains a function
+const HandleToggleChange = () => { // The syntax () => { ... } is a function
+  // Anything between { ... } is the function body
+  setDarkMode(isDark => !isDark);
+}
+```
+* the syntax `() = > { ... }` is referred to as an "arrow function"
+* we prefix variables with _scopes_ rather than types, of which there are `3`:
+
+|Scope |Meaning |
+|:-----|:-------|
+|`const` |Creates a global _constant_ |
+|`var`|Creates a global mutable variable |
+|`let`|Creates a _local_ mutable variable, scoped to the area between `{ ... }` |
+</Slide>
+
+<Slide>
+##### `useEffect`
+
+Like all very powerful things, `useEffect` is a _sometimes food_. In essence, this hook allows
+a developer to defined functionality that should happen _after_ a given control renders with
+the following assumptions:
+
+* each state change triggers a re-render (i.e. clicks, et al.)
+* we need to use `useEffect` to modify the DOM outside of a component
+* we need to synchronize in-site data with external sources
+
+Our `ToggleComponent` needs to update the `root` element, so we _can_ use this tool:
+```javascript
+useEffect(() => {
+  // Call the document's <html> element
+  const root = document.documentElement;
+  if(isDark) { // Use the const representing dark status
+    // Modify the root element by adding an attribute
+    root.setAttribute("data-theme", "dark");
+  } else {
+    // Remove the attribute if it exists
+    root.removeAttribute("data-theme");
+  }
+});
+```
+</Slide>
+
+<Slide>
+##### JSX
+
+`JSX` (Javascript XML) allows us to encapsulate (that is, isolate) the structure of a given component.
+Essentially this limits our work to the "island" that we create; in this case, just the `ToggleComponent`.
+We:
+```jsx
+return (
+  // Create a label with the class "mode-toggle"
+  <label className = "mode-toggle">
+   <input 
+    type = "checkbox" 
+    id = "dark-mode-toggle" 
+    // Hook up our change event to the control itself
+    onChange = {HandleToggleChange}
+  />
+    <span className = "slider"></span>
+  </label>
+  )
+```
+On _each render_, this component sends the above quasi-HTML back to the DOM. The CSS we've written
+behind it transforms our control.
+</Slide>
+
+
