@@ -167,4 +167,65 @@ On _each render_, this component sends the above quasi-HTML back to the DOM. The
 behind it transforms our control.
 </Slide>
 
+<Slide>
+### Javascript: `map` and `filter`
 
+Among the most common patterns in Javascript are `map` and `filter`. These are _array methods_, meaning 
+they operate on arrays. These functions exist in several languages, and form the basis for how we can
+manipulate data in both interactive controls _and_ in `astro` files.
+
+#### `map`
+
+`map` allows us to take an array and transform it into a new array. For example, we can take an array of 
+numbers and create a new array where each number is doubled:
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled);
+```
+Here, we see that the array `doubled` constitutes _another array_ which contains the product of the
+calculation of the "anonymous" function in the `map` method's argument(s).
+
+#### `filter`
+`filter` allows us to take an array and create a new array that only contains elements that satisfy 
+a certain condition. For example, we can take an array of numbers and create a new array that only contains 
+the even numbers:
+```javascript
+const numbers = [1, 2, 3, 4];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers);
+```
+Here, `evenNumbers` is the array produced by the `filter` method, which contains only the elements of `numbers` that 
+satisfy the condition specified in the anonymous function (i.e., being even).
+</Slide>
+
+<Slide>
+#### How does this relate to `astro` files?
+Let's consider some HTML from our WebCo site:
+```HTML
+<div class="full__three_column gap__3_rem"> 
+  <img src="/img/picture_placeholder.png" alt="Image placeholder">
+  <img src="/img/picture_placeholder.png" alt="Image placeholder">
+  <img src="/img/picture_placeholder.png" alt="Image placeholder"> 
+</div>
+```
+We have 3 images that are identical except for their `src` attributes. 
+This is a common pattern in web development, and we can use `map` to simplify our code:
+```javascript
+---
+const images = [
+  "/img/picture_placeholder.png",
+  "/img/picture_placeholder.png",
+  "/img/picture_placeholder.png"
+];
+---
+...
+<div class="full__three_column gap__3_rem"> 
+  {images.map(src => (
+    <img src={src} alt="Image placeholder" />
+  ))}
+</div>
+```
+This makes it easier to switch in/out images, should we want to change one without changing the markup around it,
+preserving the underlying structure of our site while allowing us to manipulate the content more easily.
+</Slide>
