@@ -48,12 +48,12 @@ import React, {useState} from 'react';
 const EventsButton = () => {
   const handleClick = (evt) => {
     alert("Button was clicked!");
-    console.log("Button was clicked!", evt);
+    console.log(evt.target.className);
   };
 
   return (
     // 2. Pass the function reference to onClick
-    <button onClick={handleClick}>
+    <button class = "submitButton" onClick={handleClick}>
       Click Me
     </button>
   );
@@ -70,3 +70,10 @@ The above renders the following:
 The previous code triggered an `alert`, a built-in browser function that creates a pop-over
 box containing a message. But, our `console` contains something much more interesting. To
 access your browsers inspect mode `Ctrl + Shift + I` (or `Cmd + Option + I` on Mac).
+
+### The `evt`
+
+The `evt` (short for event) is an object that contains information about the object that
+triggered an event (`onClick`, `onChange`, et al.). In the above example, we are logging the `className` 
+of the source element (i.e. the element producing the event). Here, this allows us to differentiate
+_which_ control might have generated an event so that our components can respond appropriately.
