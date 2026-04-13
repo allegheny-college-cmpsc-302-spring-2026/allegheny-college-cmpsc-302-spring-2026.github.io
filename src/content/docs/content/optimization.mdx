@@ -14,6 +14,7 @@ import Slide from '../../../components/Slides/Slide.astro';
 import SlideOnly from '../../../components/Slides/SlideOnly.astro';
 import Presentation from '../../../components/Slides/Presentation.astro';
 import EventsButton from '../../../components/EventsButton.jsx';
+import Lighthouse from '../../../assets/presentation-img/optimization/Lighthouse.png';
 
 :::tip[Pages are presentations!] 
 Click the `Start Presentation` button below to visualize this page as a presentation.
@@ -43,6 +44,7 @@ site delivery.
 ## Built-in Astro Features
 
 Astro has a number of built-in features that can help you optimize your site. Some of these features include:
+- **Minification**: Astro can automatically minify your HTML, CSS, and JavaScript files, which can help reduce the size of your files and improve the loading time of your site.
 - **Image Optimization**: Astro can automatically optimize images for you, which can help reduce the size of your images and improve the loading time of your site.
 - **Code Splitting**: Astro can automatically split your code into smaller chunks, which can help reduce the amount of code that needs to be loaded on each page and improve the loading time of your site.
 - **Static Site Generation**: Astro can generate static HTML files for your site, which can help improve the performance of your site and make it more secure.
@@ -104,4 +106,60 @@ export default defineConfig({
     integrations: [react(), mdx(), compress()]
 });
 ```
+</Slide>
+
+<Slide>
+### Image Optimization
+
+Serving images in the correct format and size is crucial for optimizing your site. Astro can automatically optimize 
+images for you, which can help reduce the size of your images and improve the load time of your site. New web formats
+such as WebP and AVIF can significantly reduce the size of your images without sacrificing quality.
+
+To build this into your pipeline, do the following:
+* store your images in the `src` directory (e.g. `src/images`)
+* import your images into your components using the `Image` component from `astro:assets` _or_
+* use the `getImage` function from `astro:assets` to get the optimized image URL and use it in your components
+</Slide>
+<Slide>
+Using the `Image` component:
+```jsx
+---
+import { Image } from 'astro:assets';
+---
+<Image src="../images/my-image.jpg" alt="My Image" inferSize = {true} />
+```
+
+_Or_ using the `getImage` function:
+```jsx
+---
+import { getImage } from 'astro:assets';
+const myImage = getImage('../images/my-image.jpg');
+---
+<img src={myImage.src} alt="My Image" />
+```
+</Slide>
+
+:::caution[Using components with React] 
+In most situations, you'll need to pass the already-optimized image URL to your React components.
+To do this, you can use the `getImage` function from `astro:assets` to get the optimized image URL and 
+pass it as a property to your React component.
+:::
+
+<Slide>
+### Seeing Results (Lighthouse)
+
+To see the results of your optimizations, you can use tools like Lighthouse, 
+which is built into Chrome DevTools.
+
+<Image src={Lighthouse} alt="Lighthouse" inferSize />
+
+While Lighthouse provides accessibility metrics for your site, it's important to note
+that the WebAIM WAVE tool is a more comprehensive set of WCAG A, AA, and AAA accessibility metrics.
+
+Each section of the Lighthouse report not only gives you metrics, but tips on how to improve your
+site in the given area. Following a "stoplight" pattern, you'll recieve a green, yellow, or red light
+for each section, which can help you prioritize your optimizations.
+
+In some cases, optimizations may require server-level configuration that we don't have access to on
+platforms such as Github Pages.
 </Slide>
