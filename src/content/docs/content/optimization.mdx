@@ -1,0 +1,107 @@
+---
+title: Optimization
+description: Learning about Astro features and additional tools to optimize your site
+sidebar:
+  order: 12
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+import EventsButton from '../../../components/EventsButton.jsx';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+Making sure that sites are optimized for performance is an important part of web development. 
+Here, we discuss some of the built-in features of Astro that can help you optimize your site, 
+as well as some additional platform-independent principles that can help you further optimize
+site delivery.
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+<Slide>
+
+## Built-in Astro Features
+
+Astro has a number of built-in features that can help you optimize your site. Some of these features include:
+- **Image Optimization**: Astro can automatically optimize images for you, which can help reduce the size of your images and improve the loading time of your site.
+- **Code Splitting**: Astro can automatically split your code into smaller chunks, which can help reduce the amount of code that needs to be loaded on each page and improve the loading time of your site.
+- **Static Site Generation**: Astro can generate static HTML files for your site, which can help improve the performance of your site and make it more secure.
+- **Built-in Support for Modern JavaScript**: Astro supports modern JavaScript features out of the box, which can help you write cleaner and more efficient code.
+</Slide>  
+
+<Slide>
+
+## Additional Platform-Independent Principles
+
+### Minification
+
+Minification is the process of removing unnecessary characters from your code (e.g. whitespace, comments) 
+to reduce the size of your files and improve the loading time of your site. For example:
+```javascript
+// Before minification
+function add(a, b) {
+    return a + b;
+}
+// After minification
+function add(a,b){return a+b;}
+```
+</Slide>
+<Slide>
+Minification can also be applied to CSS and HTML files, which can further reduce the size of your files and improve the loading time of your site. For example:
+```css
+/* Before minification */
+body {
+    background-color: white;
+    color: black;
+}
+/* After minification */
+body{background-color:white;color:black;}
+```
+</Slide>
+
+Simply put, minification works by removing all unnecessary characters from your code, which makes sending content "over the wire" more efficient and can significantly 
+improve the loading time of your site, especially for users with slower internet connections.
+
+<Slide>
+Natively, `Astro` doesn't minify CSS; for that, we use plugins like `compress`. To install the plugin, run the following command in your terminal:
+```bash
+npm install --save-dev @astrojs/compress
+```
+
+Then, add the plugin to your `astro.config.mjs` file:
+```javascript
+import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
+
+import compress from 'astro-compress';
+
+export default defineConfig({
+    devToolbar: {
+        enabled: false
+    },
+    // Add additional integrations here
+    integrations: [react(), mdx(), compress()]
+});
+```
+</Slide>
