@@ -3,11 +3,14 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
     integrations: [starlight({
         title: 'CMPSC 302: Web Design',
+        routeMiddleware: './src/routeData.ts',
         customCss: [
             './src/styles/custom.css'
         ],
@@ -25,5 +28,5 @@ export default defineConfig({
                 autogenerate: { directory: 'content' },
             },
         ],
-		}), mdx(),react()],
+		}), mdx(),react(), compress(), sitemap()],
 });

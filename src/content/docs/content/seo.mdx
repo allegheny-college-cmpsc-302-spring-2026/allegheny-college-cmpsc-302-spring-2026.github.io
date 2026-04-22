@@ -1,0 +1,142 @@
+---
+title: Search Engingine Optimization (SEO) and Metadata
+description: Learning about SEO and how to use metadata to improve site visibility
+sidebar:
+  order: 13 
+tableOfContents:
+    minHeadingLevel: 2
+    maxHeadingLevel: 5
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Slide from '../../../components/Slides/Slide.astro';
+import SlideOnly from '../../../components/Slides/SlideOnly.astro';
+import Presentation from '../../../components/Slides/Presentation.astro';
+import EventsButton from '../../../components/EventsButton.jsx';
+import Lighthouse from '../../../assets/presentation-img/optimization/Lighthouse.png';
+
+:::tip[Pages are presentations!] 
+Click the `Start Presentation` button below to visualize this page as a presentation.
+:::
+
+<Presentation />
+
+As a final step in optimizing your site, it's important to consider Search Engine Optimization (SEO) 
+and how to use metadata to improve your site's visibility in search engine results. Many users will 
+not be able to find your site if it doesn't appear in search engine results or may find the site 
+but not understand what it's about if you don't use metadata effectively. 
+
+## Learning Objectives
+
+1. Apply HTML, CSS, Markdown, and basic Javascript to develop well-structured, responsive World Wide Web Consortium (W3C) standards-compliant web sites.
+2. Evaluate and implement web accessibility measures consistent with the Web Content Accessibility Guidelines (WCAG) version 2 specification.
+3. Design front-end user experiences using accepted web design patterns, methods, and information structures.
+
+<Slide centered>
+
+## {frontmatter.title}
+
+</Slide>
+
+## Basic SEO Principles
+
+Our introduction to SEO will focus on two main aspects of site search optimization:
+
+* **Metadata**: Metadata is information about your site not necessarily visible to users but can be read by search engines and other sites.
+* **Sitemaps**: A sitemap is a file that provides information about the pages, videos, and other files on your site, and the relationships between them.
+
+In Astro, implementing each revolves around components and plugins along with practices reinforced
+throughout the course.
+
+<Slide>
+
+## Metadata (OpenGraph and Twitter Cards)
+
+There exist various metadata _protocols_ and _standards_ that cater to different use cases and/or platforms
+that may crawl and index you site(s). Two of the most common and widely supported metadata standards are 
+OpenGraph and Twitter Cards.
+
+### OpenGraph
+
+OpenGraph was developed by Facebook in 2010 as a way to allow web pages to become rich objects in a social graph. 
+It is widely supported by many platforms, including Facebook, LinkedIn, and Twitter. OpenGraph metadata appears
+enclosed in the `<head>` of your HTML document.
+
+</Slide>
+
+<Slide>
+
+```html
+---
+const title = "WebCo"
+const description = "WebCo is a modern web development company specializing in creating stunning websites and applications that captivate audiences and drive business growth."
+const image = "https://example.com/og-image.jpg"
+const url = "https://webco.com"
+const twitterSite = "@webco"
+---
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+```
+
+The above example leverages both OpenGraph and Twitter card protocols to provide the same metadata
+in both accepted formats. Various platforms may adopt these. For example, see what happens
+when you share a site in `Discord`.
+
+A [convenient guide] for these and other metadata standards is available on [MetaTags.io](https://metatags.io/).
+</Slide>
+
+<Slide>
+Metadata also extends to branding on a micro-scale. For example, you can use the `favicon` to provide a 
+small icon that represents your site in browser tabs and bookmarks.
+
+```html
+<link rel="icon" href="/favicon.ico" />
+```
+
+By default, Astro ships an Astro-branded favicon as `favicon.ico` in the `public` directory. This filename
+is the _de fact_ standard for the favicon, so you can simply replace this file with your own custom icon 
+to update the favicon for your site.
+
+For example, the [course website icon](/favicon.ico) is a custom icon that represents the course and is 
+used as the favicon for the site.
+
+</Slide>
+
+<Slide>
+
+## Sitemaps
+
+</Slide>
+
+## Full Example
+
+```html
+---
+const title = "WebCo"
+const description = "WebCo is a modern web development company specializing in creating stunning websites and applications that captivate audiences and drive business growth."
+const image = "https://example.com/og-image.jpg"
+const url = "https://webco.com"
+const twitterSite = "@webco"
+---
+<link rel="icon" href="/favicon.svg" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+{twitterSite && <meta name="twitter:site" content={twitterSite} />}
+<link rel="sitemap" href="/sitemap-index.xml" />
+```
