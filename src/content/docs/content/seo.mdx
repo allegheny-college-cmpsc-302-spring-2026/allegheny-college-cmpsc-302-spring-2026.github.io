@@ -180,7 +180,28 @@ via search results. For example, see the following sitemap from our course site:
 
 <Slide>
 
+## Implementing in Astro
 
+Implementing these features in Astro requires a couple of changes to site configuration:
+```bash
+npm install @astro-sitemap
+```
+
+Then, add the plugin to your `astro.config.mjs` file:
+```js
+// https://astro.build/config
+export default defineConfig({
+    site: 'https://dluman.github.io', // Add for sitemap generation
+    devToolbar: {
+        enabled: false
+    },
+    integrations: [
+        react(),
+        mdx(),
+        sitemap()                     // Add the sitemap plugin
+    ]
+});
+```
 
 </Slide>
 
