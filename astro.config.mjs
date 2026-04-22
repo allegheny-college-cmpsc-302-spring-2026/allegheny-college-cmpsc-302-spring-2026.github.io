@@ -8,6 +8,7 @@ import compress from 'astro-compress';
 
 // https://astro.build/config
 export default defineConfig({
+    site: "https://designingtheweb.dev",
     integrations: [starlight({
         title: 'CMPSC 302: Web Design',
         routeMiddleware: './src/routeData.ts',
