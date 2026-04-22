@@ -29,5 +29,5 @@ export default defineConfig({
                 autogenerate: { directory: 'content' },
             },
         ],
-		}), mdx(),react(), compress(), sitemap()],
+		}), mdx(),react(), sitemap()],
 });
